@@ -1,4 +1,4 @@
 [build]
   base = "astris-site"
   command = "npm run build"
-  publish = "astris-site/_site"
+  publish = "_site"
