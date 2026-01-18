@@ -1,16 +1,17 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+
+  // ISO-Date filter (used in presse.njk)
+  eleventyConfig.addFilter("isoDate", (date) => {
+    if (!date) return "";
+    const d = date instanceof Date ? date : new Date(date);
+    return isNaN(d) ? "" : d.toISOString();
+  });
 
   return {
     dir: {
       input: "src",
-      output: "_site",
-      includes: "_includes",
-      data: "_data"
+      output: "_site"
     },
-    templateFormats: ["njk", "md", "html"],
-    htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk"
+    templateFormats: ["njk", "md", "html"]
   };
 };
