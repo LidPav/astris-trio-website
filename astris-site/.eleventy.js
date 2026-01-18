@@ -1,6 +1,8 @@
 module.exports = function (eleventyConfig) {
   
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("src/assets");
+
 
   // ISO-Date filter (used in presse.njk)
   eleventyConfig.addFilter("isoDate", (date) => {
