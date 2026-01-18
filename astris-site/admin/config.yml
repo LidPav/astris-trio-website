@@ -8,6 +8,8 @@ public_folder: "/assets/img/uploads"
 
 locale: "de"
 
+publish_mode: simple
+
 collections:
   - name: "konzerte"
     label: "Konzerte"
