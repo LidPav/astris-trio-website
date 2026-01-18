@@ -1,0 +1,19 @@
+---
+layout: layout.njk
+title: Konzerte
+description: Termine und Konzertarchiv
+---
+
+<h1 class="h1">Konzerte</h1>
+<p class="lead">Termine &amp; Archiv (künftig bequem im Web-Editor pflegbar).</p>
+
+<div class="list">
+  {% set items = collections.konzert | reverse %}
+  {% for post in items %}
+    <div class="card">
+      <h2 class="h2">{{ post.data.title }}</h2>
+      <p class="muted small">{{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}</p>
+      <a class="btn" href="{{ post.url }}">Details</a>
+    </div>
+  {% endfor %}
+</div>

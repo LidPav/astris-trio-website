@@ -1,0 +1,21 @@
+---
+layout: layout.njk
+title: Repertoire
+description: Repertoire des Astris Trio
+---
+
+<h1 class="h1">Repertoire</h1>
+<p class="lead">Auswahl – Programme werden je nach Anlass flexibel zusammengestellt.</p>
+
+{% for era, works in repertoire %}
+  <div class="card" style="margin-top:14px">
+    <h2 class="h2">{{ era }}</h2>
+    <ul>
+      {% for w in works %}
+        <li>{{ w }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+
+<p class="small muted" style="margin-top:18px">Tipp: Das Repertoire lässt sich später über den Web-Editor ohne Code anpassen.</p>

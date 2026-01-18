@@ -1,0 +1,22 @@
+---
+layout: layout.njk
+title: Presse
+description: Pressestimmen & Links
+---
+
+<h1 class="h1">Presse</h1>
+<p class="lead">Auswahl an Pressestimmen und Links.</p>
+
+<div class="list">
+  {% set items = collections.presse | reverse %}
+  {% for post in items %}
+    <div class="card">
+      <h2 class="h2">{{ post.data.title }}</h2>
+      <p class="muted small">{{ post.data.source }} · {{ post.data.published }}</p>
+      <div class="btnrow">
+        <a class="btn btn--primary" href="{{ post.data.link }}" target="_blank" rel="noopener">Zum Artikel</a>
+        <a class="btn" href="{{ post.url }}">Zitat / Kurztext</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>

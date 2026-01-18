@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "name": "Iason Keramidis",
+      "instrument": "Violine",
+      "image": "/assets/img/iason_keramidis.jpg",
+      "bio": "Geboren 1985 in Kavala (Griechenland). Studium in Stuttgart (Ingolf Turban) sowie Karlsruhe (Ulf Hoelscher), Abschluss mit Auszeichnung und Solistenklasse. Internationale Konzerttätigkeit und vielfach preisgekrönt; u.a. 1. Preis beim Wettbewerb des Freundeskreises der HfM Karlsruhe mit dem Astris Trio. Seit 2013 Mitglied der 1. Geigen der Münchner Philharmoniker, seit 2018 stellvertretender Konzertmeister."
+    },
+    {
+      "name": "Alexandre Vay",
+      "instrument": "Violoncello",
+      "image": "/assets/img/alexandre_vay.jpg",
+      "bio": "Stellvertretender Solocellist im Münchner Rundfunkorchester. Studium am CNSMD Lyon (Yvan Chiffoleau) und an der HfM Karlsruhe (Martin Ostertag, Solistenklasse), Meisterkurse u.a. bei János Starker und Steven Isserlis. 2014 Einspielung sämtlicher Beethoven-Sonaten für Violoncello und Klavier mit Dimitri Papadopoulos; regelmäßige Tourneen und Meisterkurse (u.a. Thailand). Seit 2009 künstlerischer Leiter der Kammermusikakademie Trouville-sur-Mer."
+    },
+    {
+      "name": "Lidija Pavlović",
+      "instrument": "Klavier",
+      "image": "/assets/img/lidija_pavlovic.jpg",
+      "bio": "Geboren in Belgrad. Frühdebüt als Solistin, Studium an der Musikhochschule Belgrad, anschließend Master und Solistenklasse Klavierkammermusik an der HfM Karlsruhe (Michael Uhde, Markus Stange) mit Auszeichnung. Preisträgerin zahlreicher Wettbewerbe und regelmäßig bei internationalen Festivals zu Gast; Rundfunk- und Fernsehaufnahmen u.a. bei BR und SWR. Lehrt Klavier, Korrepetition und Musiktheorie an der Musikschule Ismaning sowie an der Städtischen Sing- und Musikschule München."
+    }
+  ]
+}

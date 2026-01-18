@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+locale: "de"
+
+collections:
+  - name: "konzerte"
+    label: "Konzerte"
+    folder: "src/konzerte"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Datum", name: "date", widget: "datetime", time_format: false}
+      - {label: "Ort", name: "city", widget: "string"}
+      - {label: "Veranstaltungsort", name: "venue", widget: "string"}
+      - {label: "Inhalt", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["konzert"]}
+
+  - name: "presse"
+    label: "Presse"
+    folder: "src/presse"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Quelle", name: "source", widget: "string"}
+      - {label: "Veröffentlicht", name: "published", widget: "datetime", time_format: false}
+      - {label: "Link", name: "link", widget: "string"}
+      - {label: "Kurztext/Zitat", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["presse"]}
+
+  - name: "daten"
+    label: "Stammdaten"
+    files:
+      - label: "Musiker:innen"
+        name: "musiker"
+        file: "src/_data/musiker.json"
+        fields:
+          - label: "Mitglieder"
+            name: "members"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Instrument", name: "instrument", widget: "string"}
+              - {label: "Bild", name: "image", widget: "image"}
+              - {label: "Bio", name: "bio", widget: "text"}
+      - label: "Repertoire"
+        name: "repertoire"
+        file: "src/_data/repertoire.json"
+        fields:
+          - {label: "Klassik", name: "Klassik", widget: "list"}
+          - {label: "Romantik", name: "Romantik", widget: "list"}
+          - {label: "20./21. Jahrhundert", name: "20./21. Jahrhundert", widget: "list"}
