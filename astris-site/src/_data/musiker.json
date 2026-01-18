@@ -1,22 +1,16 @@
 {
   "members": [
     {
-      "name": "Iason Keramidis",
-      "instrument": "Violine",
-      "image": "/assets/img/iason_keramidis.jpg",
-      "bio": "Geboren 1985 in Kavala (Griechenland). Studium in Stuttgart (Ingolf Turban) sowie Karlsruhe (Ulf Hoelscher), Abschluss mit Auszeichnung und Solistenklasse. Internationale Konzerttätigkeit und vielfach preisgekrönt; u.a. 1. Preis beim Wettbewerb des Freundeskreises der HfM Karlsruhe mit dem Astris Trio. Seit 2013 Mitglied der 1. Geigen der Münchner Philharmoniker, seit 2018 stellvertretender Konzertmeister."
-    },
-    {
-      "name": "Alexandre Vay",
-      "instrument": "Violoncello",
-      "image": "/assets/img/alexandre_vay.jpg",
-      "bio": "Stellvertretender Solocellist im Münchner Rundfunkorchester. Studium am CNSMD Lyon (Yvan Chiffoleau) und an der HfM Karlsruhe (Martin Ostertag, Solistenklasse), Meisterkurse u.a. bei János Starker und Steven Isserlis. 2014 Einspielung sämtlicher Beethoven-Sonaten für Violoncello und Klavier mit Dimitri Papadopoulos; regelmäßige Tourneen und Meisterkurse (u.a. Thailand). Seit 2009 künstlerischer Leiter der Kammermusikakademie Trouville-sur-Mer."
-    },
-    {
-      "name": "Lidija Pavlović",
+      "name": "Lidija Pavlovic",
       "instrument": "Klavier",
-      "image": "/assets/img/lidija_pavlovic.jpg",
-      "bio": "Geboren in Belgrad. Frühdebüt als Solistin, Studium an der Musikhochschule Belgrad, anschließend Master und Solistenklasse Klavierkammermusik an der HfM Karlsruhe (Michael Uhde, Markus Stange) mit Auszeichnung. Preisträgerin zahlreicher Wettbewerbe und regelmäßig bei internationalen Festivals zu Gast; Rundfunk- und Fernsehaufnahmen u.a. bei BR und SWR. Lehrt Klavier, Korrepetition und Musiktheorie an der Musikschule Ismaning sowie an der Städtischen Sing- und Musikschule München."
+      "image": "/assets/img/uploads/pavlovic_lidija_400x400_0.jpg",
+      "bio": "Lidija Pavlović wurde in Belgrad (Serbien) geboren. Den ersten Klavierunterricht erhielt sie mit fünf Jahren in der Musikschule „Josip Slavenski“ in Belgrad.  Erster Debüt als Solistin mit Orchester im Alter von neun Jahren. Mit 16 Jahren wurde sie an die Musikhochschule Belgrad in die Klasse von Prof. Ninoslav Živković aufgenommen, wo sie ihr Diplomstudium erfolgreich abschloss. Weitere Ausbildungen in Masterstudium Klavier-Solo und anschließend Solistenklasse für Klavierkammermusik an der HfM Karlsruhe in der Klasse von Prof. Michael Uhde und Prof. Markus Stange absolvierte sie mit Auszeichnungen. \nSie ist Preisträgerin zahlreicher nationaler und internationaler Klavier- und Kammermusikwettbewerbe, wie z.B. Kammermusikwettbewerb in Illzach (Frankreich), Concorso internazionale di musica in Stresa (Italien), Freundeskreiswettbewerb der HfM Karlsruhe, Internationale Klavierwettbewerbe „Davorin Jenko“, „Petar Konjović“ und „Vučković“ in Belgrad, Pianisten Wettbewerb EPTA-Serbien, Bundeswettbewerb Jugoslawiens.\n"
+    },
+    {
+      "name": "Iason Keramidis",
+      "instrument": "Geige",
+      "image": "/assets/img/uploads/csm_iason_keramidis_0052_1000x1000_frank_bauer_8e6928342c.jpg.jpeg",
+      "bio": "yxv >DSA >SD "
     }
   ]
 }
