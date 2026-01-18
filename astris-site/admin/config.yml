@@ -36,7 +36,7 @@ collections:
     fields:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Quelle", name: "source", widget: "string"}
-      - {label: "Veröffentlicht", name: "published", widget: "datetime", time_format: false}
+      - {label: "Veröffentlicht", name: "date", widget: "datetime", time_format: false}
       - {label: "Link", name: "link", widget: "string"}
       - {label: "Kurztext/Zitat", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", default: ["presse"]}
