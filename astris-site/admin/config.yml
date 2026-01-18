@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+backend:
+  name: github
+  repo: LidPav/astris-trio-website
   branch: main
+  site_domain: transcendent-stroopwafel-22896d.netlify.app
+
 
 media_folder: "src/assets/img/uploads"
 public_folder: "/assets/img/uploads"
