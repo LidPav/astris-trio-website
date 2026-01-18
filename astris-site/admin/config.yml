@@ -3,8 +3,8 @@ backend:
   repo: LidPav/astris-trio-website
   branch: main
 
-media_folder: "src/assets/img/uploads"
-public_folder: "/assets/img/uploads"
+media_folder: "astris-site/src/assets/img/uploads"
+public_folder: "astris-site/assets/img/uploads"
 
 locale: "de"
 
@@ -13,7 +13,7 @@ publish_mode: simple
 collections:
   - name: "konzerte"
     label: "Konzerte"
-    folder: "src/konzerte"
+    folder: "astris-site/src/konzerte"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
@@ -28,7 +28,7 @@ collections:
 
   - name: "presse"
     label: "Presse"
-    folder: "src/presse"
+    folder: "astris-site/src/presse""
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
@@ -46,7 +46,7 @@ collections:
     files:
       - label: "Musiker:innen"
         name: "musiker"
-        file: "src/_data/musiker.json"
+        file: "astris-site/src/_data/musiker.json"
         fields:
           - label: "Mitglieder"
             name: "members"
@@ -58,7 +58,7 @@ collections:
               - {label: "Bio", name: "bio", widget: "text"}
       - label: "Repertoire"
         name: "repertoire"
-        file: "src/_data/repertoire.json"
+        file: "astris-site/src/_data/repertoire.json"
         fields:
           - {label: "Klassik", name: "Klassik", widget: "list"}
           - {label: "Romantik", name: "Romantik", widget: "list"}
