@@ -4,7 +4,7 @@ backend:
   branch: main
 
 media_folder: "astris-site/src/assets/img/uploads"
-public_folder: "astris-site/assets/img/uploads"
+public_folder: "/assets/img/uploads"
 
 locale: "de"
 
@@ -28,7 +28,7 @@ collections:
 
   - name: "presse"
     label: "Presse"
-    folder: "astris-site/src/presse""
+    folder: "astris-site/src/presse"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
