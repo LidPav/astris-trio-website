@@ -2,6 +2,8 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.setPathPrefix("/astris-trio-website/");
+
 
 
   // ISO-Date filter (used in presse.njk)
