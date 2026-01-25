@@ -2,23 +2,14 @@
 layout: layout.njk
 title: "Musiker:innen"
 ---
-
 <h1>Musiker:innen</h1>
-
 <div class="musiker-grid">
-  {% for m in musiker.members %}
-    <article class="musiker-card">
-      <img
-        src="{{ m.image | url }}"
-        alt="{{ m.name }}"
-        class="musiker-card__image"
-      >
-
-      <div class="musiker-card__content">
-        <h2>{{ m.name }}</h2>
-        <p class="muted">{{ m.instrument }}</p>
-        <p>{{ m.bio | nl2br }}</p>
-      </div>
-    </article>
-  {% endfor %}
+{% for m in musiker.members %}
+  <article>
+    <img src="{{ m.image | url }}" alt="{{ m.name }}">
+    <h2>{{ m.name }}</h2>
+    <p>{{ m.instrument }}</p>
+    <p>{{ m.bio | nl2br }}</p>
+  </article>
+{% endfor %}
 </div>
