@@ -1,40 +1,33 @@
 ---
 layout: layout.njk
-title: Media
-description: Hören & Sehen
+title: Medien
+description: Videos & Aufnahmen
 ---
 
-<h1 class="h1">Media</h1>
-<p class="lead">Audio/Video-Einbindungen (YouTube, SoundCloud, etc.) – einfach Links einsetzen.</p>
+<h1>Medien</h1>
+<p class="lead">Ausgewählte Videoaufnahmen</p>
 
-<div class="grid">
-  <div class="card">
-    <h2 class="h2">Video</h2>
-    <p class="small muted">Beispiel: YouTube-Embed (ersetze die Video-ID).</p>
-    <div style="position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1px solid var(--line)">
-      <iframe
-        title="YouTube"
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        style="position:absolute;inset:0;width:100%;height:100%;border:0"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </div>
+<div class="list">
+  {% for post in collections.konzert | reverse %}
+    {% if post.data.video %}
+      <div class="card">
 
-  <div class="card">
-    <h2 class="h2">Audio</h2>
-    <p class="small muted">Beispiel: SoundCloud (ersetze den Link im iframe).</p>
-    <iframe
-      title="SoundCloud"
-      width="100%"
-      height="166"
-      scrolling="no"
-      frameborder="no"
-      allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=..."
-      style="border-radius:16px;border:1px solid var(--line)"
-    ></iframe>
-  </div>
+        <h2 class="h2">{{ post.data.title }}</h2>
+        <p class="muted small">
+          {{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}
+        </p>
+
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/{{ post.data.video | replace('https://www.youtube.com/watch?v=', '') }}"
+            title="YouTube Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    {% endif %}
+  {% endfor %}
 </div>
