@@ -5,26 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ title }} | {{ site.name }}</title>
   <meta name="description" content="{{ description or site.tagline }}" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}" />
 </head>
 <body>
   <a class="skip" href="#content">Zum Inhalt springen</a>
 
   <header class="header">
     <div class="wrap header__inner">
-      <a class="brand" href="/">
+      <a class="brand" href="{{ '/' | url }}">
         <span class="brand__name">{{ site.name }}</span>
         <span class="brand__tag">{{ site.tagline }}</span>
       </a>
 
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="/ensemble/" class="nav__link">Ensemble</a>
-        <a href="/musiker/" class="nav__link">Musiker:innen</a>
-        <a href="/repertoire/" class="nav__link">Repertoire</a>
-        <a href="/konzerte/" class="nav__link">Konzerte</a>
-        <a href="/media/" class="nav__link">Media</a>
-        <a href="/presse/" class="nav__link">Presse</a>
-        <a href="/kontakt/" class="nav__link">Kontakt</a>
+        <a href="{{ '/ensemble/' | url }}" class="nav__link">Ensemble</a>
+        <a href="{{ '/musiker/' | url }}" class="nav__link">Musiker:innen</a>
+        <a href="{{ '/repertoire/' | url }}" class="nav__link">Repertoire</a>
+        <a href="{{ '/konzerte/' | url }}" class="nav__link">Konzerte</a>
+        <a href="{{ '/media/' | url }}" class="nav__link">Media</a>
+        <a href="{{ '/presse/' | url }}" class="nav__link">Presse</a>
+        <a href="{{ '/kontakt/' | url }}" class="nav__link">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -42,9 +42,9 @@
         <span class="muted">{{ site.tagline }}</span>
       </div>
       <div class="footer__links">
-        <a href="/kontakt/">Booking</a>
-        <a href="/impressum/">Impressum</a>
-        <a href="/datenschutz/">Datenschutz</a>
+        <a href="{{ '/kontakt/' | url }}">Booking</a>
+        <a href="{{ '/impressum/' | url }}">Impressum</a>
+        <a href="{{ '/datenschutz/' | url }}">Datenschutz</a>
       </div>
     </div>
   </footer>
