@@ -74,9 +74,19 @@ a:hover{
 .brand__name{font-weight:650; letter-spacing:.2px}
 .brand__tag{color:var(--muted); font-size:.92rem}
 .nav{display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:flex-end}
+
+/* Header: hell & ruhig */
+.header{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Navigation: gut lesbar */
 .nav__link{
-  color: #1f2933;              /* gleich wie Haupttext */
-  font-weight: 500;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .nav__link:hover{
@@ -84,6 +94,7 @@ a:hover{
   text-decoration: underline;
   text-underline-offset: 0.25em;
 }
+
 .nav__link[aria-current="page"]{
   color: var(--accent);
   font-weight: 600;
