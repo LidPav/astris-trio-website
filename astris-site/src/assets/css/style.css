@@ -124,9 +124,10 @@ p{margin:.7em 0}
   margin: 0 auto 2rem auto;
 }
 
-.musiker-card__image{
+.musiker-grid article img.musiker-card__image{
   width: 220px;
   height: 220px;
+  max-width: none;
   object-fit: cover;
   border-radius: 12px;
   display: block;
