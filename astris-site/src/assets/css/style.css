@@ -152,6 +152,10 @@ p{margin:.7em 0}
   }
 }
 
+.musiker-grid article{
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
 
 .footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
 .footer__inner{display:flex; align-items:flex-start; justify-content:space-between; gap:18px}
