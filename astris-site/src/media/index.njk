@@ -8,26 +8,23 @@ description: Videos & Aufnahmen
 <p class="lead">Ausgewählte Videoaufnahmen</p>
 
 <div class="list">
-  {% for post in collections.konzert | reverse %}
-    {% if post.data.video %}
-      <div class="card">
+  {% for v in media.videos %}
+    <div class="card">
+      <h2 class="h2">{{ v.title }}</h2>
+      {% if v.meta %}
+        <p class="muted small">{{ v.meta }}</p>
+      {% endif %}
 
-        <h2 class="h2">{{ post.data.title }}</h2>
-        <p class="muted small">
-          {{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}
-        </p>
-
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/{{ post.data.video | replace('https://www.youtube.com/watch?v=', '') }}"
-            title="YouTube Video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/{{ v.youtubeId }}"
+          title="YouTube Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
-    {% endif %}
+    </div>
   {% endfor %}
 </div>
+
