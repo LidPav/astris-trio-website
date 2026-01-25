@@ -19,17 +19,7 @@ description: Termine und Konzertarchiv
       </p>
 
       {# 🎥 EMBED NUR WENN VIDEO EXISTIERT #}
-      {% if post.data.video %}
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/{{ post.data.video | replace('https://www.youtube.com/watch?v=', '') }}"
-            title="YouTube Video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      {% endif %}
+     
 
       <a class="btn" href="{{ post.url }}">Details</a>
 
