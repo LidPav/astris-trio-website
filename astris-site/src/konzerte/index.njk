@@ -5,15 +5,34 @@ description: Termine und Konzertarchiv
 ---
 
 <h1 class="h1">Konzerte</h1>
-<p class="lead">Termine &amp; Archiv (künftig bequem im Web-Editor pflegbar).</p>
+<p class="lead">Termine &amp; Archiv</p>
 
 <div class="list">
   {% set items = collections.konzert | reverse %}
   {% for post in items %}
     <div class="card">
+
       <h2 class="h2">{{ post.data.title }}</h2>
-      <p class="muted small">{{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}</p>
+
+      <p class="muted small">
+        {{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}
+      </p>
+
+      {# 🎥 EMBED NUR WENN VIDEO EXISTIERT #}
+      {% if post.data.video %}
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/{{ post.data.video | replace('https://www.youtube.com/watch?v=', '') }}"
+            title="YouTube Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      {% endif %}
+
       <a class="btn" href="{{ post.url }}">Details</a>
+
     </div>
   {% endfor %}
 </div>
