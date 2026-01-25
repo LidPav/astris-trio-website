@@ -7,13 +7,18 @@ title: "Musiker:innen"
 
 <div class="musiker-grid">
   {% for m in musiker.members %}
-<article class="musiker-card">
-  <img src="{{ m.image | url }}" alt="{{ m.name }}" class="musiker-card__image">
+    <article class="musiker-card">
+      <img
+        src="{{ m.image | url }}"
+        alt="{{ m.name }}"
+        class="musiker-card__image"
+      >
 
-  <div class="musiker-card__content">
-    <h2>{{ m.name }}</h2>
-    <p class="muted">{{ m.instrument }}</p>
-    <p>{{ m.bio | nl2br }}</p>
-  </div>
-</article>
-
+      <div class="musiker-card__content">
+        <h2>{{ m.name }}</h2>
+        <p class="muted">{{ m.instrument }}</p>
+        <p>{{ m.bio | nl2br }}</p>
+      </div>
+    </article>
+  {% endfor %}
+</div>
