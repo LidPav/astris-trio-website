@@ -133,6 +133,26 @@ p{margin:.7em 0}
   margin-bottom: 1rem;
 }
 
+.musiker-grid article{
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.musiker-card__content{
+  flex: 1;
+}
+@media (max-width: 700px){
+  .musiker-grid article{
+    flex-direction: column;
+  }
+
+  .musiker-grid article img.musiker-card__image{
+    width: 220px;
+    height: 220px;
+  }
+}
+
+
 .footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
 .footer__inner{display:flex; align-items:flex-start; justify-content:space-between; gap:18px}
 .footer__links{display:flex; gap:14px; flex-wrap:wrap}
