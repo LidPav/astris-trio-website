@@ -6,7 +6,7 @@ title: "Musiker:innen"
 <div class="musiker-grid">
 {% for m in musiker.members %}
   <article>
-    <img src="{{ m.image | url }}" alt="{{ m.name }}">
+    <img src="{{ m.image | url }}" alt="{{ m.name }}" class="musiker-card__image">
     <h2>{{ m.name }}</h2>
     <p>{{ m.instrument }}</p>
     <p>{{ m.bio | nl2br }}</p>
