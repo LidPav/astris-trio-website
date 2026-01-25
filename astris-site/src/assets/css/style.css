@@ -183,10 +183,6 @@ p{margin:.7em 0}
   height: 100%;
 }
 
-.nav__link{
-  color: red !important;
-}
-
 
 .footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
 .footer__inner{display:flex; align-items:flex-start; justify-content:space-between; gap:18px}
