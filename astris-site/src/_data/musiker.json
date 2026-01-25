@@ -3,20 +3,20 @@
     {
       "name": "Lidija Pavlovic",
       "instrument": "Klavier",
-      "image": "/assets/img/uploads/pavlovic_lidija_400x400_0.jpg",
+      "image": "/assets/img/Pavlovic_Lidija_400x400_0.jpg",
       "bio": "Lidija Pavlović wurde in Belgrad (Serbien) geboren. Den ersten Klavierunterricht erhielt sie mit fünf Jahren in der Musikschule „Josip Slavenski“ in Belgrad.  Erster Debüt als Solistin mit Orchester im Alter von neun Jahren. Mit 16 Jahren wurde sie an die Musikhochschule Belgrad in die Klasse von Prof. Ninoslav Živković aufgenommen, wo sie ihr Diplomstudium erfolgreich abschloss. Weitere Ausbildungen in Masterstudium Klavier-Solo und anschließend Solistenklasse für Klavierkammermusik an der HfM Karlsruhe in der Klasse von Prof. Michael Uhde und Prof. Markus Stange absolvierte sie mit Auszeichnungen. \nSie ist Preisträgerin zahlreicher nationaler und internationaler Klavier- und Kammermusikwettbewerbe, wie z.B. Kammermusikwettbewerb in Illzach (Frankreich), Concorso internazionale di musica in Stresa (Italien), Freundeskreiswettbewerb der HfM Karlsruhe, Internationale Klavierwettbewerbe „Davorin Jenko“, „Petar Konjović“ und „Vučković“ in Belgrad, Pianisten Wettbewerb EPTA-Serbien, Bundeswettbewerb Jugoslawiens.\n"
     },
     {
-      "name": "Iason Keramidis",
-      "instrument": "Geige",
-      "image": "/assets/img/uploads/csm_iason_keramidis_0052_1000x1000_frank_bauer_8e6928342c.jpg.jpeg",
-      "bio": "yxv >DSA >SD "
+      "name": "Alexandre Vay",
+      "instrument": "Violine",
+      "image": "/assets/img/alexandre-vay-foto-konvalin-r5-a0301.webp",
+      "bio": "…"
     },
-     {
-      "name": "Alexandr Vay",
-      "instrument": "Cello",
-      "image": "/assets/img/uploads/csm_alexandr_vay_0052_1000x1000_frank_bauer_8e6928342c.jpg.jpeg",
-      "bio": "yxv >DSA >SD "
+    {
+      "name": "Iason Keramidis",
+      "instrument": "Violoncello",
+      "image": "/assets/img/csm_iason_keramidis_0052_1000x1000_Frank_Bauer_8e6928342c.jpg.webp",
+      "bio": "…"
     }
   ]
 }
