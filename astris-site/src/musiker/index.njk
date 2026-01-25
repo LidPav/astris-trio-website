@@ -11,7 +11,7 @@ description: Mitglieder des Astris Trio
   {% for m in musiker.members %}
     <div class="card">
       <div class="person">
-        <img src="{{ m.image }}" alt="{{ m.name }}" loading="lazy" />
+        <img src="{{ m.image | url }}" alt="{{ m.name }}">
         <div>
           <div class="person__name">{{ m.name }}</div>
           <div class="person__role">{{ m.instrument }}</div>
