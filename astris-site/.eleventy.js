@@ -1,10 +1,6 @@
 module.exports = function (eleventyConfig) {
-  
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.setPathPrefix("/astris-trio-website/");
-
-
 
   // ISO-Date filter (used in presse.njk)
   eleventyConfig.addFilter("isoDate", (date) => {
@@ -16,8 +12,12 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "_site"
+      output: "_site",
     },
-    templateFormats: ["njk", "md", "html"]
+    templateFormats: ["njk", "md", "html"],
+
+    // GitHub Pages project URL prefix:
+    // https://lidpav.github.io/astris-trio-website/
+    pathPrefix: "/astris-trio-website/",
   };
 };
