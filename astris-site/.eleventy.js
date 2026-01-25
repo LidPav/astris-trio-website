@@ -1,8 +1,9 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "admin": "admin" });
+  // Statische Dateien durchreichen
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
-  // ISO-Date filter (used in presse.njk)
+  // ISO-Date filter (für presse.njk)
   eleventyConfig.addFilter("isoDate", (date) => {
     if (!date) return "";
     const d = date instanceof Date ? date : new Date(date);
@@ -15,9 +16,7 @@ module.exports = function (eleventyConfig) {
       output: "_site",
     },
     templateFormats: ["njk", "md", "html"],
-
-    // GitHub Pages project URL prefix:
-    // https://lidpav.github.io/astris-trio-website/
+    // wichtig für GitHub Pages unter /astris-trio-website/
     pathPrefix: "/astris-trio-website/",
   };
 };
