@@ -1,23 +1,17 @@
 ---
 layout: layout.njk
-title: Musiker:innen
-description: Mitglieder des Astris Trio
+title: "Musiker:innen"
 ---
 
-<h1 class="h1">Musiker:innen</h1>
-<p class="lead">Kurzbiografien (für die ausführlichen Versionen können wir optional eine Download-PDF ergänzen).</p>
+<h1>Musiker:innen</h1>
 
-<div class="list">
+<div class="musiker-grid">
   {% for m in musiker.members %}
-    <div class="card">
-      <div class="person">
-        <img src="{{ m.image | url }}" alt="{{ m.name }}">
-        <div>
-          <div class="person__name">{{ m.name }}</div>
-          <div class="person__role">{{ m.instrument }}</div>
-        </div>
-      </div>
-      <p class="small" style="margin-top:12px">{{ m.bio }}</p>
-    </div>
+    <article class="musiker-card">
+      <img src="{{ m.image | url }}" alt="{{ m.name }}" class="musiker-card__image">
+      <h2>{{ m.name }}</h2>
+      <p class="muted">{{ m.instrument }}</p>
+      <p>{{ m.bio }}</p>
+    </article>
   {% endfor %}
 </div>
