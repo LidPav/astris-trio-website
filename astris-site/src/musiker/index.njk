@@ -6,7 +6,6 @@ title: "Musiker:innen"
 <div class="musiker-grid">
 {% for m in musiker.members %}
   <article>
-    <img src="{{ m.image | url }}" alt="{{ m.name }}" class="musiker-card__image">
     {% set parts = m.name.split(' ') %}
     <h2 class="musiker-name">
     {{ parts[0] }}<br>
@@ -17,3 +16,4 @@ title: "Musiker:innen"
   </article>
 {% endfor %}
 </div>
+
