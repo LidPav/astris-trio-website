@@ -284,9 +284,14 @@ p{margin:.7em 0}
   display: flex;
   justify-content: center;
 }
+.hero-image{ max-width: 100%; }
+
+.hero-inner{
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 3fr);
+}
 
 .hero-image{
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 16px;
