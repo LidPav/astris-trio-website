@@ -304,6 +304,22 @@ p{margin:.7em 0}
 .home-section .card{
   margin-top: 0.8rem;
 }
+/* Erzwinge Vorname / Nachname untereinander */
+.musiker-name{
+  margin: 0 0 0.35rem 0;
+  line-height: 1.05;
+}
+.musiker-name__first{
+  display: block;
+  font-weight: 600;
+}
+.musiker-name__last{
+  display: block;
+  font-weight: 500;
+  margin-top: 0.06rem;
+  color: var(--text);
+  opacity: 0.95;
+}
 
 
 .footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
