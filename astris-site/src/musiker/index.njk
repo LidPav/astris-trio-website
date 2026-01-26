@@ -6,14 +6,22 @@ title: "Musiker:innen"
 <div class="musiker-grid">
 {% for m in musiker.members %}
   <article>
+
     {% set parts = m.name.split(' ') %}
     <h2 class="musiker-name">
-    {{ parts[0] }}<br>
-    {{ parts | slice(1) | join(' ') }}
+      {{ parts[0] }}<br>
+      {{ parts | slice(1) | join(' ') }}
     </h2>
-    <p>{{ m.instrument }}</p>
+
+    <p class="muted">{{ m.instrument }}</p>
+
+    <img
+      src="{{ m.image | url }}"
+      alt="{{ m.name }}"
+      class="musiker-card__image"
+    >
+
     <p>{{ m.bio | nl2br }}</p>
   </article>
 {% endfor %}
 </div>
-
