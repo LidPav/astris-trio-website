@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages-${{ github.ref }}"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -38,7 +38,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: astris-site/_site
-          name: pages-artifact
 
   deploy:
     needs: build
@@ -50,5 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: pages-artifact
