@@ -7,21 +7,21 @@
       "image": "/assets/img/lidija_pavlovic.jpg",
       
       "bio": "Lidija Pavlović wurde in Belgrad (Serbien) geboren. Den ersten Klavierunterricht erhielt sie mit fünf Jahren in der Musikschule „Josip Slavenski“ in Belgrad. Erster Debüt als Solistin mit Orchester im Alter von neun Jahren. Mit 16 Jahren wurde sie an die Musikhochschule Belgrad in die Klasse von Prof. Ninoslav Živković aufgenommen, wo sie ihr Diplomstudium erfolgreich abschloss. Weitere Ausbildungen in Masterstudium Klavier-Solo und anschließend Solistenklasse für Klavierkammermusik an der HfM Karlsruhe in der Klasse von Prof. Michael Uhde und Prof. Markus Stange absolvierte sie mit Auszeichnungen. \nSie ist Preisträgerin zahlreicher nationaler und internationaler Klavier- und Kammermusikwettbewerbe, wie z.B. Kammermusikwettbewerb in Illzach (Frankreich), Concorso internazionale di musica in Stresa (Italien), Freundeskreiswettbewerb der HfM Karlsruhe, Internationale Klavierwettbewerbe „Davorin Jenko“, „Petar Konjović“ und „Vučković“ in Belgrad, Pianisten Wettbewerb EPTA-Serbien, Bundeswettbewerb Jugoslawiens.\n" },
-  
-  { "name": "Alexandre Vay",
-    
-    "instrument": "Violoncello", 
-    
-    "image": "/assets/img/alexandre_vay.jpg",
-    
-    "bio": "Karypidi Poulo" },
-  
+
   { "name": "Iason Keramidis",
     
     "instrument": "Violine",
     
     "image": "/assets/img/iason_keramidis.jpg",
     
-    "bio": "Poula kai Fuge" } 
+    "bio": "Poula kai Fuge" } ,
+    
+  { "name": "Alexandre Vay",
+    
+    "instrument": "Violoncello", 
+    
+    "image": "/assets/img/alexandre_vay.jpg",
+    
+    "bio": "Karypidi Poulo" }
 ]
 }
