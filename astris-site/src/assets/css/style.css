@@ -169,11 +169,14 @@ p{margin:.7em 0}
 }
 
 .hero-image{
-  max-width: 70%;
+  max-width: 85%;
   height: auto;
   display: block;
-  margin: 0 auto 2rem auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
+
 .musiker-grid article img.musiker-card__image{
   width: 260px;
   height: 260px;
