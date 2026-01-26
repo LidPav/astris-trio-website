@@ -1,40 +1,40 @@
 ---
 layout: layout.njk
-title: Start
-description: Astris Trio – modernes Klaviertrio (Violine, Violoncello, Klavier)
+title: "Astris Trio"
 ---
 
-<div class="hero">
-  <img src="{{ site.heroImage | url }}" alt="Astris Trio auf der Bühne" class="hero-image" loading="eager" />
-</div>
+<section class="hero">
+  <div class="hero-inner wrap">
 
-<p class="kicker" style="margin-top:18px">Klaviertrio</p>
-<h1 class="h1">Astris Trio</h1>
-<p class="lead">
-  Drei Stimmen, ein gemeinsamer Atem: Das Astris Trio verbindet präzises Zusammenspiel
-  mit klarem Klang und großer Ausdruckskraft.
-</p>
+    <div class="hero-text">
+      <p class="hero-kicker">Klassisches Klaviertrio</p>
+      <h1>Astris Trio</h1>
+      <p class="lead">
+        Das Astris Trio vereint Klavier, Violine und Violoncello zu kammermusikalischen Programmen
+        von Schubert bis in die Moderne – mit Schwerpunkt auf poetischer Klangkultur.
+      </p>
 
-<div class="btnrow">
-  <a class="btn btn--primary" href="/kontakt/">Anfragen / Booking</a>
-  <a class="btn" href="/media/">Hören &amp; Sehen</a>
-  <a class="btn" href="/presse/">Presse</a>
-</div>
+      <div class="btns">
+        <a href="{{ '/konzerte/' | url }}" class="btn btn--primary">Konzerte</a>
+        <a href="{{ '/musiker/' | url }}" class="btn">Musiker:innen</a>
+        <a href="{{ '/media/' | url }}" class="btn">Medien</a>
+      </div>
+    </div>
 
-<section class="grid" style="margin-top:24px">
-  <div class="card">
-    <h2 class="h2">Kurzprofil</h2>
-    <p class="muted">Violine · Violoncello · Klavier</p>
-    <p class="small">
-      Das Astris Trio ist ein Kammermusikensemble aus München.
-      Das Repertoire reicht von der Klassik bis zur Moderne.
-    </p>
+    <div class="hero-image-wrap">
+      <img
+        src="{{ site.heroImage | url }}"
+        alt="Astris Trio auf der Bühne"
+        class="hero-image"
+        loading="eager"
+      >
+    </div>
+
   </div>
-  <div class="card">
-    <h2 class="h2">Aktuell</h2>
-    <p class="small muted">
-      Neue Termine, Programme und Pressemeldungen können künftig direkt im Web-Editor gepflegt werden.
-    </p>
-    <a class="btn" href="/konzerte/">Zu den Konzerten</a>
+</section>
+
+<section class="home-section">
+  <div class="wrap">
+    {# hier kannst du z.B. Kurztext, Repertoire-Teaser oder nächste Konzerte einblenden #}
   </div>
 </section>
