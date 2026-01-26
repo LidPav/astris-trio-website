@@ -7,7 +7,11 @@ title: "Musiker:innen"
 {% for m in musiker.members %}
   <article>
     <img src="{{ m.image | url }}" alt="{{ m.name }}" class="musiker-card__image">
-    <h2>{{ m.name }}</h2>
+    {% set parts = m.name.split(' ') %}
+    <h2 class="musiker-name">
+    {{ parts[0] }}<br>
+    {{ parts | slice(1) | join(' ') }}
+    </h2>
     <p>{{ m.instrument }}</p>
     <p>{{ m.bio | nl2br }}</p>
   </article>
