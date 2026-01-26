@@ -9,12 +9,12 @@ title: "Musiker:innen"
 
     {# Split name robust: first token = Vorname, rest = Nachname (oder Nachnamen) #}
     {% set nameParts = m.name.split(' ') %}
-    {% set firstname = nameParts[0] %}
-    {% set lastname = (nameParts | slice(1) | join(' ')) %}
+    {% set firstname = m.name.split(' ')[0] %}
+    {% set lastname = m.name.replace(firstname ~ ' ', '') %}
 
     <h2 class="musiker-name" data-fullname="{{ m.name }}">
-      <span class="musiker-name__first">{{ firstname }}</span>
-      <span class="musiker-name__last">{{ lastname }}</span>
+    <span class="musiker-name__first">{{ firstname }}</span>
+    <span class="musiker-name__last">{{ lastname }}</span>
     </h2>
 
     <p class="muted">{{ m.instrument }}</p>
@@ -29,3 +29,7 @@ title: "Musiker:innen"
   </article>
 {% endfor %}
 </div>
+
+
+
+
