@@ -5,12 +5,16 @@ title: "Musiker:innen"
 <h1>Musiker:innen</h1>
 <div class="musiker-grid">
 {% for m in musiker.members %}
-  <article>
+  <article class="musiker-card">
 
-    {% set parts = m.name.split(' ') %}
-    <h2 class="musiker-name">
-      {{ parts[0] }}<br>
-      {{ parts | slice(1) | join(' ') }}
+    {# Split name robust: first token = Vorname, rest = Nachname (oder Nachnamen) #}
+    {% set nameParts = m.name.split(' ') %}
+    {% set firstname = nameParts[0] %}
+    {% set lastname = (nameParts | slice(1) | join(' ')) %}
+
+    <h2 class="musiker-name" data-fullname="{{ m.name }}">
+      <span class="musiker-name__first">{{ firstname }}</span>
+      <span class="musiker-name__last">{{ lastname }}</span>
     </h2>
 
     <p class="muted">{{ m.instrument }}</p>
