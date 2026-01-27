@@ -4,18 +4,57 @@ title: Repertoire
 description: Repertoire des Astris Trio
 ---
 
-<h1 class="h1">Repertoire</h1>
-<p class="lead">Auswahl – Programme werden je nach Anlass flexibel zusammengestellt.</p>
-
-{% for era, works in repertoire %}
-  <div class="card" style="margin-top:14px">
-    <h2 class="h2">{{ era }}</h2>
-    <ul>
-      {% for w in works %}
-        <li>{{ w }}</li>
-      {% endfor %}
-    </ul>
+<section class="editorial">
+  <div class="editorial__header">
+    <h1 class="editorial__title">Repertoire</h1>
+    <p class="editorial__lead">
+      Das Repertoire des Astris Trio umfasst Werke der Klassik und Romantik
+      bis hin zu ausgewählten Kompositionen des 20. und 21. Jahrhunderts.
+    </p>
   </div>
-{% endfor %}
 
-<p class="small muted" style="margin-top:18px">Tipp: Das Repertoire lässt sich später über den Web-Editor ohne Code anpassen.</p>
+  <div class="editorial__grid">
+    <div class="editorial__main">
+
+      <h2>Klassik</h2>
+      <ul class="repertoire-list">
+        {% for work in repertoire.Klassik %}
+          <li>{{ work }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2>Romantik</h2>
+      <ul class="repertoire-list">
+        {% for work in repertoire.Romantik %}
+          <li>{{ work }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2>20. / 21. Jahrhundert</h2>
+      <ul class="repertoire-list">
+        {% for work in repertoire['20./21. Jahrhundert'] %}
+          <li>{{ work }}</li>
+        {% endfor %}
+      </ul>
+
+    </div>
+
+    <aside class="editorial__aside">
+      <div class="aside-card">
+        <h3>Programme</h3>
+        <p class="muted">
+          Gerne stellen wir thematische Programme zusammen
+          (z. B. Schubert–Beethoven, Wiener Klassik, Moderne).
+        </p>
+      </div>
+
+      <div class="aside-card">
+        <h3>Besetzungen</h3>
+        <p class="muted">
+          Klavier · Violine · Violoncello<br>
+          (auf Anfrage auch mit Gästen)
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
