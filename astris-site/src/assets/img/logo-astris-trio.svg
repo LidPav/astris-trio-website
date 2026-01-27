@@ -9,16 +9,18 @@
     }
     .subtitle{
       font-family: 'Inter', sans-serif;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 600;
       fill: #2E3A8C;
       letter-spacing: 0.26em;
     }
+
     .dot{ fill:#2E3A8C; }
   </style>
 
   <text x="0" y="30" class="title">ASTRIS</text>
-  <text x="152" y="30" class="subtitle">TRIO</text>
+  <text x="160" y="30" class="subtitle">TRIO</text>
+
 
   <circle cx="240" cy="27" r="2.6" class="dot"/>
   <circle cx="254" cy="27" r="2.6" class="dot"/>
