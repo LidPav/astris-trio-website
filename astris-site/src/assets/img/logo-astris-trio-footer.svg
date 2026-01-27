@@ -1,1 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="40" viewBox="0 0 260 40" role="img" aria-label="Astris Trio">
+  <style>
+    .title{
+      font-family: 'Source Serif 4', serif;
+      font-size: 20px;
+      font-weight: 500;
+      fill: #1f2933;
+      letter-spacing: 0.02em;
+    }
+    .subtitle{
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      fill: #1f2933;
+      letter-spacing: 0.22em;
+    }
+    .dot{
+      fill:#1f2933;
+      opacity: 0.6;
+    }
+  </style>
+
+  <text x="0" y="26" class="title">ASTRIS</text>
+  <text x="108" y="26" class="subtitle">TRIO</text>
+
+  <circle cx="186" cy="24" r="2.2" class="dot"/>
+  <circle cx="198" cy="24" r="2.2" class="dot"/>
+  <circle cx="210" cy="24" r="2.2" class="dot"/>
+</svg>
 
