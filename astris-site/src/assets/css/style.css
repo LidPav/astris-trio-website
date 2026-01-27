@@ -384,6 +384,30 @@ h2{
   letter-spacing: -0.015em;
 }
 
+.section{
+  padding: 40px 0;
+}
+
+.section--alt{
+  background: #eceff3;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:36px;
+  height:2px;
+  background: var(--accent);
+  margin-top:8px;
+}
+.card--primary{
+  background: #ffffff;
+}
+
+.card--secondary{
+  background: #f0f2f5;
+}
+
+
 .footer-brand{
   margin-top: 12px;
 }
