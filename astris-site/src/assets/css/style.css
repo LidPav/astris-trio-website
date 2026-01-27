@@ -384,6 +384,20 @@ h2{
   letter-spacing: -0.015em;
 }
 
+.footer-brand{
+  margin-top: 12px;
+}
+
+.footer-brand img{
+  display: block;
+  max-width: 200px;
+  height: auto;
+  opacity: 0.85;
+}
+.footer-brand img{
+  opacity: 0.75;
+}
+
 .footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
 .footer__inner{display:flex; align-items:flex-start; justify-content:space-between; gap:18px}
 .footer__links{display:flex; gap:14px; flex-wrap:wrap}
