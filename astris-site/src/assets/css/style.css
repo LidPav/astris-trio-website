@@ -511,3 +511,26 @@ h2{
     grid-template-columns: 1fr;
   }
 }
+
+/* Repertoire Listen – ruhig & lesbar */
+.repertoire-list{
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 28px;
+}
+
+.repertoire-list li{
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  max-width: 72ch;
+}
+
+.repertoire-list li:last-child{
+  border-bottom: none;
+}
+.repertoire-list li{
+  font-weight: 500;
+}
+.repertoire-list li em{
+  font-style: italic;
+}
