@@ -33,6 +33,56 @@ title: "Astris Trio"
   </div>
 </section>
 
+<section class="home-section home-section--alt">
+  <div class="wrap">
+
+    <div class="home-split">
+      <div>
+        <h2 class="section-title">Repertoire</h2>
+        <p class="muted">
+          Ausgewählte Werke aus unserem Programm – Klassik bis 21. Jahrhundert.
+        </p>
+      </div>
+
+      <div class="home-split__cta">
+        <a class="btn" href="{{ '/repertoire/' | url }}">Zum vollständigen Repertoire</a>
+      </div>
+    </div>
+
+    <div class="repertoire-teaser card">
+      <div class="repertoire-teaser__col">
+        <h3 class="h3">Klassik</h3>
+        <ul class="repertoire-mini">
+          {% for work in (repertoire.Klassik | slice(0,3)) %}
+            <li>{{ work }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="repertoire-teaser__col">
+        <h3 class="h3">Romantik</h3>
+        <ul class="repertoire-mini">
+          {% for work in (repertoire.Romantik | slice(0,3)) %}
+            <li>{{ work }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="repertoire-teaser__col">
+        <h3 class="h3">20./21. Jh.</h3>
+        <ul class="repertoire-mini">
+          {% for work in (repertoire['20./21. Jahrhundert'] | slice(0,3)) %}
+            <li>{{ work }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 <section class="home-section">
   <div class="wrap">
     {# hier kannst du z.B. Kurztext, Repertoire-Teaser oder nächste Konzerte einblenden #}
