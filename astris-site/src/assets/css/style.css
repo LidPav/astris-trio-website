@@ -534,3 +534,64 @@ h2{
 .repertoire-list li em{
   font-style: italic;
 }
+
+
+/* Startseite: Sektion mit leicht abgesetztem Hintergrund */
+.home-section{
+  padding: 36px 0 44px;
+}
+.home-section--alt{
+  background: var(--panel-alt);
+}
+
+/* Überschrift + Button in einer Zeile */
+.home-split{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom: 14px;
+}
+.home-split__cta{
+  flex: 0 0 auto;
+}
+
+/* Repertoire-Teaser: 3 Spalten */
+.repertoire-teaser{
+  padding: 18px 18px;
+}
+.repertoire-teaser{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+}
+
+.repertoire-teaser__col h3{
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+}
+
+/* kleine Liste: ruhig, ohne Bullets */
+.repertoire-mini{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.repertoire-mini li{
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  max-width: 42ch;
+}
+.repertoire-mini li:last-child{
+  border-bottom: none;
+}
+
+@media (max-width: 900px){
+  .home-split{
+    align-items:flex-start;
+    flex-direction: column;
+  }
+  .repertoire-teaser{
+    grid-template-columns: 1fr;
+  }
+}
