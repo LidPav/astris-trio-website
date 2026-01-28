@@ -91,10 +91,9 @@ a:hover{
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(10px);
 
-  /* feine elfenbeinfarbene Linie */
-  border-bottom: 2px solid #D4AF37 !important;
+  /* feine goldene Linie */
+  border-bottom: 2px solid #D4AF37;
 }
-
 
 .header__inner{
   display:flex;
@@ -108,13 +107,6 @@ a:hover{
 .brand__name{font-weight:650; letter-spacing:.2px}
 .brand__tag{color:var(--muted); font-size:.92rem}
 .nav{display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:flex-end}
-
-/* Header: hell & ruhig */
-.header{
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
 
 /* Navigation: gut lesbar */
 .nav__link{
