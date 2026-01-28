@@ -595,3 +595,53 @@ h2{
     grid-template-columns: 1fr;
   }
 }
+
+/* Startseite: Programmkärtchen */
+.program-cards{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.program-card{
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.05);
+  padding: 18px 18px;
+}
+
+.program-kicker{
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.program-title{
+  margin: 0 0 10px 0;
+  font-size: 1.06rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 550;
+}
+
+.program-note{
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+/* Optional: sanfte Akzentfläche */
+.program-card:nth-child(1){
+  background:
+    radial-gradient(520px 240px at 10% 0%, rgba(59,91,204,.08), transparent 60%),
+    rgba(255,255,255,.82);
+}
+
+@media (max-width: 900px){
+  .program-cards{
+    grid-template-columns: 1fr;
+  }
+}
