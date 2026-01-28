@@ -22,8 +22,8 @@
   <text x="160" y="30" class="subtitle">TRIO</text>
 
 
-  <circle cx="244" cy="27" r="2.6" class="dot"/>
-  <circle cx="258" cy="27" r="2.6" class="dot"/>
-  <circle cx="272" cy="27" r="2.6" class="dot"/>
+  <circle cx="248" cy="27" r="2.6" class="dot"/>
+  <circle cx="262" cy="27" r="2.6" class="dot"/>
+  <circle cx="276" cy="27" r="2.6" class="dot"/>
 </svg>
 
