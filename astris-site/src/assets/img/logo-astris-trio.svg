@@ -2,14 +2,14 @@
   <style>
     .title{
       font-family: 'Source Serif 4', serif;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 500;
       fill: #1f2933;
       letter-spacing: 0.02em;
     }
     .subtitle{
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 600;
       fill: #2E3A8C;
       letter-spacing: 0.26em;
