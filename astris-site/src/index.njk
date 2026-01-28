@@ -40,7 +40,7 @@ title: "Astris Trio"
       <div>
         <h2 class="section-title">Repertoire</h2>
         <p class="muted">
-          Ausgewählte Werke aus unserem Programm – Klassik bis 21. Jahrhundert.
+          Drei exemplarische Programmlinien – klassisch, romantisch, zeitgenössisch.
         </p>
       </div>
 
@@ -49,37 +49,41 @@ title: "Astris Trio"
       </div>
     </div>
 
-    <div class="repertoire-teaser card">
-      <div class="repertoire-teaser__col">
-        <h3 class="h3">Klassik</h3>
-        <ul class="repertoire-mini">
-          {% for work in (repertoire.Klassik | slice(0,3)) %}
-            <li>{{ work }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+    <div class="program-cards">
+      <article class="program-card">
+        <p class="program-kicker">Klassik</p>
+        <h3 class="program-title">
+          {{ repertoire.Klassik[0] }}
+        </h3>
+        <p class="program-note muted">
+          Klarheit, Balance und kammermusikalischer Dialog.
+        </p>
+      </article>
 
-      <div class="repertoire-teaser__col">
-        <h3 class="h3">Romantik</h3>
-        <ul class="repertoire-mini">
-          {% for work in (repertoire.Romantik | slice(0,3)) %}
-            <li>{{ work }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      <article class="program-card">
+        <p class="program-kicker">Romantik</p>
+        <h3 class="program-title">
+          {{ repertoire.Romantik[0] }}
+        </h3>
+        <p class="program-note muted">
+          Klangfarben, große Bögen und erzählerische Tiefe.
+        </p>
+      </article>
 
-      <div class="repertoire-teaser__col">
-        <h3 class="h3">20./21. Jh.</h3>
-        <ul class="repertoire-mini">
-          {% for work in (repertoire['20./21. Jahrhundert'] | slice(0,3)) %}
-            <li>{{ work }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      <article class="program-card">
+        <p class="program-kicker">20./21. Jahrhundert</p>
+        <h3 class="program-title">
+          {{ repertoire['20./21. Jahrhundert'][0] }}
+        </h3>
+        <p class="program-note muted">
+          Zeitgenössische Perspektiven – präzise, transparent, neugierig.
+        </p>
+      </article>
     </div>
 
   </div>
 </section>
+
 
 
 
