@@ -15,7 +15,7 @@ description: Pressestimmen & Links
       <p class="muted small">{{ post.data.source }} · {{ post.data.published }}</p>
       <div class="btnrow">
         <a class="btn btn--primary" href="{{ post.data.link }}" target="_blank" rel="noopener">Zum Artikel</a>
-        <a class="btn" href="{{ post.url }}">Zitat / Kurztext</a>
+        <a class="btn" href="{{ post.url | url }}">Zitat / Kurztext</a>
       </div>
     </div>
   {% endfor %}
