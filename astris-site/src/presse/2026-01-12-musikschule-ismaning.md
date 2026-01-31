@@ -8,7 +8,7 @@ tags: ["presse"]
 ---
 
 <h1 class="h1">Spontaner Einsatz des Astris-Trios verzauberte das Publikum</h1>
-<p class="muted small">Musikschule Ismaning</p>
+<p class="muted small">Musikschule Ismaning · 12. Januar 2026 ·</p>
 <blockquote>
   „Kurzfristig für ein erkranktes Ensemble eingesprungen, überzeugte das Astris Trio das Publikum „vom ersten Ton an“ und erhielt langanhaltenden Applaus.“
 </blockquote>
