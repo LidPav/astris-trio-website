@@ -14,9 +14,23 @@ description: Pressestimmen & Links
       <h2 class="h2">{{ post.data.title }}</h2>
       <p class="muted small">{{ post.data.source }} · {{ post.data.published }}</p>
       <div class="btnrow">
-        <a class="btn btn--primary" href="{{ post.data.full | url }}">Zum Artikel</a>
+        {# 1) Wenn ein externer Link vorhanden ist: dahin #}
+        {% if post.data.link %}
+          <a class="btn btn--primary" href="{{ post.data.link }}" target="_blank" rel="noopener">
+            Zum Artikel
+          </a>
+
+        {# 2) Sonst, wenn eine interne Vollseite vorhanden ist: dahin #}
+          {% elseif post.data.full %}
+          <a class="btn btn--primary" href="{{ post.data.full | url }}">
+            Zum Artikel
+          </a>
+        {% endif %}
+
+        {# Zitat/Kurztext ist immer intern → immer | url #}
         <a class="btn" href="{{ post.url | url }}">Zitat / Kurztext</a>
-        </div>
-    </div>
+</div>
+
+</div>
   {% endfor %}
 </div>
