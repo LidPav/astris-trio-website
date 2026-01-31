@@ -7,5 +7,13 @@ link: https://www.musikschule-ismaning.de/spontaner-einsatz-des-astris-trios-ver
 tags: ["presse"]
 ---
 
-<h1 class="h1">...</h1>
-<p class="muted small">...</p>Kurzfristig für ein erkranktes Ensemble eingesprungen, überzeugte das Astris Trio das Publikum „vom ersten Ton an“ und erhielt langanhaltenden Applaus.
+<h1 class="h1">Spontaner Einsatz des Astris-Trios verzauberte das Publikum</h1>
+<p class="muted small">Musikschule Ismaning</p>
+<blockquote>
+  „Kurzfristig für ein erkranktes Ensemble eingesprungen, überzeugte das Astris Trio das Publikum „vom ersten Ton an“ und erhielt langanhaltenden Applaus.“
+</blockquote>
+<blockquote>
+  „Die Musikerinnen und Musiker fanden mühelos zu einer gemeinsamen Klangsprache.“
+</blockquote>
+
+
