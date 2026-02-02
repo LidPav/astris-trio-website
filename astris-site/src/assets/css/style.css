@@ -697,10 +697,11 @@ h2{
 
 /* Two-line hero mark: ASTRIS above (dots + TRIO) */
 .hero-mark{
+  display: inline-block;   /* shrink-wrap to ASTRIS width */
   margin: 0.2em 0 0.35em;
   line-height: 1;
-  display: inline-block;
 }
+
 
 .hero-mark__astris{
   display: block;
@@ -712,11 +713,14 @@ h2{
 }
 
 .hero-mark__row2{
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-end;   /* 🔑 right-align */
   align-items: baseline;
   gap: 12px;
-  margin-top: 6px;         /* controls vertical spacing between lines */
+  margin-top: 6px;
+  width: 100%;                 /* 🔑 take full width of ASTRIS */
 }
+
 
 /* dots */
 .hero-mark__dots{
