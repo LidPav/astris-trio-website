@@ -695,3 +695,49 @@ h2{
   }
 }
 
+/* Two-line hero mark: ASTRIS above (dots + TRIO) */
+.hero-mark{
+  margin: 0.2em 0 0.35em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.hero-mark__astris{
+  display: block;
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-weight: 500;
+  color: #2E3A8C;          /* deep blue */
+  letter-spacing: 0.05em;
+}
+
+.hero-mark__row2{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;         /* controls vertical spacing between lines */
+}
+
+/* dots */
+.hero-mark__dots{
+  display: inline-flex;
+  gap: 6px;
+  transform: translateY(-0.15em);  /* optically aligns dots with TRIO */
+}
+
+.hero-mark__dots span{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E3A8C;
+  display: block;
+}
+
+/* TRIO */
+.hero-mark__trio{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(2.2rem, 4.2vw, 2.8rem);
+  font-weight: 500;
+  color: #c7c7c7;           /* light grey / silver */
+  letter-spacing: 0.10em;
+}
