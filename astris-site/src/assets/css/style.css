@@ -640,3 +640,57 @@ h2{
     grid-template-columns: 1fr;
   }
 }
+
+/* Hero title: Astris Trio typographic mark */
+.hero-title{
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0.2em 0 0.35em;
+  line-height: 1;
+}
+
+/* ASTRIS */
+.hero-title__astris{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-weight: 500;
+  color: #2E3A8C; /* deep blue */
+  letter-spacing: 0.04em;
+}
+
+/* TRIO */
+.hero-title__trio{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(2.2rem, 4.2vw, 2.8rem);
+  font-weight: 500;
+  color: #c9c9c9; /* light grey / silver */
+  letter-spacing: 0.08em;
+}
+
+/* three dots */
+.hero-title__dots{
+  display: inline-flex;
+  gap: 6px;
+  transform: translateY(-0.25em);
+}
+
+.hero-title__dots span{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E3A8C;
+  display: block;
+}
+
+/* Mobile refinement */
+@media (max-width: 600px){
+  .hero-title{
+    gap: 10px;
+  }
+  .hero-title__dots span{
+    width: 6px;
+    height: 6px;
+  }
+}
+
