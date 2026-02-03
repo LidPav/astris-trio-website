@@ -26,8 +26,6 @@ module.exports = function (eleventyConfig) {
       output: "_site",
     },
     pathPrefix: "/astris-trio-website/",
-
-    // BEI DER BESTEHENDEN LÖSUNG BLEIBEN → Liquid:
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "liquid",
     dataTemplateEngine: "liquid",
