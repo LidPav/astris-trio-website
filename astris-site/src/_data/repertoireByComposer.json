@@ -1,44 +1,83 @@
 {
-  "Joseph Haydn": [
-    "Klaviertrio Nr. 39 in G‑Dur, Hob. XV:25"
-  ],
-  "Wolfgang Amadeus Mozart": [
-    "Klaviertrio B‑Dur, KV 502"
-  ],
-  "Ludwig van Beethoven": [
-    "Klaviertrio D‑Dur, op. 70 Nr. 1 „Geistertrio“",
-    "Klaviertrio Nr. 7 B‑Dur, op. 97 „Erzherzog‑Trio“",
-    "Klaviertrio B‑Dur, op. 11 „Gassenhauer‑Trio“"
-  ],
-  "Franz Schubert": [
-    "Klaviertrio Es‑Dur, op. 100, D 929",
-    "Notturno Es‑Dur, D 897"
-  ],
-  "Robert Schumann": [
-    "Klaviertrio Nr. 1 d‑Moll, op. 63"
-  ],
-  "Dmitri Schostakowitsch": [
-    "Klaviertrio Nr. 2 e‑Moll, op. 67 (1944)"
-  ],
-  "Anton Arensky": [
-    "Klaviertrio Nr. 1 d‑Moll, op. 32"
-  ],
-  "Maurice Ravel": [
-    "Klaviertrio a‑Moll (1914)"
-  ],
-  "Max Reger": [
-    "Klaviertrio e‑Moll, op. 102"
-  ],
-  "Astor Piazzolla": [
-    "Die vier Jahreszeiten (Arr. für Klaviertrio)"
-  ],
-  "Ljubica Marić": [
-    "Torso"
-  ],
-  "Nikos Skalkottas": [
-    "8 Variationen über ein griechisches Volkslied"
-  ],
-  "Wolfgang Rihm": [
-    "Fremde Szene III"
-  ]
+  "Joseph Haydn": {
+    "epoch": "Klassik",
+    "works": [
+      "Klaviertrio Nr. 39 in G‑Dur, Hob. XV:25"
+    ]
+  },
+  "Wolfgang Amadeus Mozart": {
+    "epoch": "Klassik",
+    "works": [
+      "Klaviertrio B‑Dur, KV 502"
+    ]
+  },
+  "Ludwig van Beethoven": {
+    "epoch": "Klassik",
+    "works": [
+      "Klaviertrio D‑Dur, op. 70 Nr. 1 „Geistertrio“",
+      "Klaviertrio Nr. 7 B‑Dur, op. 97 „Erzherzog‑Trio“",
+      "Klaviertrio B‑Dur, op. 11 „Gassenhauer‑Trio“"
+    ]
+  },
+  "Franz Schubert": {
+    "epoch": "Romantik",
+    "works": [
+      "Klaviertrio Es‑Dur, op. 100, D 929",
+      "Notturno Es‑Dur, D 897"
+    ]
+  },
+  "Robert Schumann": {
+    "epoch": "Romantik",
+    "works": [
+      "Klaviertrio Nr. 1 d‑Moll, op. 63"
+    ]
+  },
+  "Dmitri Schostakowitsch": {
+    "epoch": "Moderne",
+    "works": [
+      "Klaviertrio Nr. 2 e‑Moll, op. 67 (1944)"
+    ]
+  },
+  "Anton Arensky": {
+    "epoch": "Romantik",
+    "works": [
+      "Klaviertrio Nr. 1 d‑Moll, op. 32"
+    ]
+  },
+  "Maurice Ravel": {
+    "epoch": "Moderne",
+    "works": [
+      "Klaviertrio a‑Moll (1914)"
+    ]
+  },
+  "Max Reger": {
+    "epoch": "Moderne",
+    "works": [
+      "Klaviertrio e‑Moll, op. 102"
+    ]
+  },
+  "Astor Piazzolla": {
+    "epoch": "Zeitgenössisch",
+    "works": [
+      "Die vier Jahreszeiten (Arr. für Klaviertrio)"
+    ]
+  },
+  "Ljubica Marić": {
+    "epoch": "Zeitgenössisch",
+    "works": [
+      "Torso"
+    ]
+  },
+  "Nikos Skalkottas": {
+    "epoch": "Moderne",
+    "works": [
+      "8 Variationen über ein griechisches Volkslied"
+    ]
+  },
+  "Wolfgang Rihm": {
+    "epoch": "Zeitgenössisch",
+    "works": [
+      "Fremde Szene III"
+    ]
+  }
 }
