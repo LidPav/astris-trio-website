@@ -750,3 +750,7 @@ h2{
 .repertoire h4 { margin-top: 1rem; margin-bottom: .35rem; }
 .repertoire ul { margin: 0 0 1rem 1.25rem; }
 .editorial__lead { margin-bottom: 1.25rem; }
+/* Repertoire-Epochen in Königsblau */
+.repertoire__epoch {
+  color: #2B4EA2; /* Königsblau */
+}
