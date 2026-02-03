@@ -2,7 +2,7 @@
 layout: layout.njk
 title: Spontaner Einsatz des Astris-Trios verzauberte das Publikum
 source: Musikschule Ismaning
-published: 2026-01-12
+published: "12. Januar 2026"
 link: https://www.musikschule-ismaning.de/spontaner-einsatz-des-astris-trios-verzauberte-das-publikum/
 tags: ["presse"]
 ---
