@@ -8,8 +8,9 @@ description: Termine und Konzertarchiv
 <p class="lead">Termine &amp; Archiv</p>
 
 <div class="list">
-  {%- assign items = collections.konzerte | sort: "date" | reverse -%}
-  {%- for post in items -%}
+  {# Nunjucks: sortiere nach Datum und dann umdrehen (neueste zuerst) #}
+  {% set items = collections.konzerte | sort('date') | reverse %}
+  {% for post in items %}
     <div class="card">
 
       <h2 class="h2">
@@ -17,12 +18,12 @@ description: Termine und Konzertarchiv
       </h2>
 
       <p class="muted small">
-        {{ post.date | deDate: "EEEE, d. LLLL yyyy" }}
-        {%- if post.data.city %} · {{ post.data.city }}{% endif -%}
-        {%- if post.data.venue %} · {{ post.data.venue }}{% endif -%}
+        {{ post.date | deDate("EEEE, d. LLLL yyyy") }}
+        {% if post.data.city %} · {{ post.data.city }}{% endif %}
+        {% if post.data.venue %} · {{ post.data.venue }}{% endif %}
       </p>
 
       <a class="btn" href="{{ post.url | url }}">Details</a>
     </div>
-  {%- endfor -%}
+  {% endfor %}
 </div>
