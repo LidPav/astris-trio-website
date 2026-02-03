@@ -8,21 +8,21 @@ description: Termine und Konzertarchiv
 <p class="lead">Termine &amp; Archiv</p>
 
 <div class="list">
-  {% set items = collections.konzert | reverse %}
-  {% for post in items %}
+  {%- assign items = collections.konzerte | sort: "date" | reverse -%}
+  {%- for post in items -%}
     <div class="card">
 
-      <h2 class="h2">{{ post.data.title }}</h2>
+      <h2 class="h2">
+        <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+      </h2>
 
       <p class="muted small">
-        {{ post.data.date }} · {{ post.data.city }} · {{ post.data.venue }}
+        {{ post.date | deDate: "EEEE, d. LLLL yyyy" }}
+        {%- if post.data.city %} · {{ post.data.city }}{% endif -%}
+        {%- if post.data.venue %} · {{ post.data.venue }}{% endif -%}
       </p>
 
-      {# 🎥 EMBED NUR WENN VIDEO EXISTIERT #}
-     
-
-      <a class="btn" href="{{ post.url }}">Details</a>
-
+      <a class="btn" href="{{ post.url | url }}">Details</a>
     </div>
-  {% endfor %}
+  {%- endfor -%}
 </div>
