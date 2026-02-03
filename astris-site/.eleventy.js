@@ -23,3 +23,16 @@ module.exports = function(eleventyConfig) {
     // optional: falls du UTC beibehalten willst, nichts ändern
   };
 };
+
+// .eleventy.js (im Projekt-Root)
+module.exports = function(eleventyConfig) {
+  return {
+    dir: {
+      input: "src",            // deine Quell-Dateien
+      includes: "_includes",   // Pfad relativ zu input
+      layouts: "_includes",    // Layouts liegen ebenfalls hier
+      data: "_data",           // Daten-Ordner relativ zu input
+      output: "_site"          // Ausgabeordner (optional)
+    }
+  };
+};
