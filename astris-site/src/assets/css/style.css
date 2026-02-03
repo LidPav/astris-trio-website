@@ -745,3 +745,8 @@ h2{
   color: #c7c7c7;           /* light grey / silver */
   letter-spacing: 0.10em;
 }
+
+.repertoire__epoch { margin-top: 1.5rem; }
+.repertoire h4 { margin-top: 1rem; margin-bottom: .35rem; }
+.repertoire ul { margin: 0 0 1rem 1.25rem; }
+.editorial__lead { margin-bottom: 1.25rem; }
