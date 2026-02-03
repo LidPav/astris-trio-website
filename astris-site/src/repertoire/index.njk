@@ -8,34 +8,49 @@ description: Repertoire des Astris Trio
   <div class="editorial__header">
     <h1 class="editorial__title">Repertoire</h1>
     <p class="editorial__lead">
-      Das Repertoire des Astris Trio umfasst Werke der Klassik und Romantik
-      bis hin zu ausgewählten Kompositionen des 20. und 21. Jahrhunderts.
+      Das Repertoire des Astris Trios umfasst Werke verschiedenster Epochen – von der Klassik
+      bis hin zur zeitgenössischen Musik – und spiegelt die stilistische Vielfalt und Offenheit
+      des Ensembles wider.
     </p>
   </div>
 
   <div class="editorial__grid">
     <div class="editorial__main">
 
-      <h2>Klassik</h2>
-      <ul class="repertoire-list">
-        {% for work in repertoire.Klassik %}
-          <li>{{ work }}</li>
-        {% endfor %}
-      </ul>
+      <h2>Repertoire &amp; Programme</h2>
 
-      <h2>Romantik</h2>
-      <ul class="repertoire-list">
-        {% for work in repertoire.Romantik %}
-          <li>{{ work }}</li>
-        {% endfor %}
-      </ul>
+      {# Reihenfolge der Epochen bewusst festgelegt #}
+      {% set epochOrder = ['Klassik', 'Romantik', 'Moderne', 'Zeitgenössisch'] %}
 
-      <h2>20. / 21. Jahrhundert</h2>
-      <ul class="repertoire-list">
-        {% for work in repertoire['20./21. Jahrhundert'] %}
-          <li>{{ work }}</li>
+      <section id="repertoire" class="repertoire">
+        {% for epoch in epochOrder %}
+
+          {# Komponisten herausfiltern, die zu dieser Epoche gehören.
+             Hinweis: Object.keys() Reihenfolge folgt der JSON-Einfügereihenfolge. #}
+          {% set composersInEpoch = [] %}
+          {% for composer, data in repertoireByComposer %}
+            {% if data.epoch == epoch %}
+              {% set composersInEpoch = composersInEpoch.concat([{ 'name': composer, 'works': data.works }]) %}
+            {% endif %}
+          {% endfor %}
+
+          {# Nur Abschnitt ausgeben, wenn es Inhalte gibt #}
+          {% if composersInEpoch.length %}
+            <h3 class="repertoire__epoch">{{ epoch }}</h3>
+
+            {% for c in composersInEpoch %}
+              <h4>{{ c.name }}</h4>
+              <ul>
+                {% for work in c.works %}
+                  <li>{{ work }}</li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+
+          {% endif %}
+
         {% endfor %}
-      </ul>
+      </section>
 
     </div>
 
@@ -44,7 +59,7 @@ description: Repertoire des Astris Trio
         <h3>Programme</h3>
         <p class="muted">
           Gerne stellen wir thematische Programme zusammen
-          (z. B. Schubert–Beethoven, Wiener Klassik, Moderne).
+          (z.&nbsp;B. Schubert–Beethoven, Wiener Klassik, Moderne).
         </p>
       </div>
 
