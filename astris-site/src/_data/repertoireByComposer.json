@@ -32,6 +32,12 @@
       "Klaviertrio Nr. 1 d‑Moll, op. 63"
     ]
   },
+    "Antonín Dvořák": {
+    "epoch": "Romantik",
+    "works": [
+      "Klaviertrio Nr. 4 („Dumky“-Trio) op. 90 e-Moll"
+    ]
+  },
   "Dmitri Schostakowitsch": {
     "epoch": "Moderne",
     "works": [
@@ -74,12 +80,6 @@
       "8 Variationen über ein griechisches Volkslied"
     ]
   },
-  "Antonín Dvořák": {
-    "epoch": "Romantik",
-    "works": [
-      "Klaviertrio Nr. 4 („Dumky“-Trio) op. 90 e-Moll"
-    ]
-  }
   "Wolfgang Rihm": {
     "epoch": "Zeitgenössisch",
     "works": [
