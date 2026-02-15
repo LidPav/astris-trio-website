@@ -20,9 +20,9 @@ title: "Musiker:innen"
     <p class="muted">{{ m.instrument }}</p>
 
     <img
-      src="{{ m.image | url }}"
-      alt="{{ m.name }}"
-      class="musiker-card__image"
+    src="{{ m.image | url }}"
+    alt="{{ m.name }}"
+    class="musiker-card__image{% if m.name == 'Alexandre Vay' %} musiker-card__image--vay{% endif %}"
     >
 
     <p>{{ m.bio | nl2br }}</p>
@@ -30,21 +30,6 @@ title: "Musiker:innen"
 {% endfor %}
 </div>
 
-<section class="musiker-grid">
-  {% for m in members.members %}
-    <article>
-      <img class="musiker-card__image" src="{{ m.image }}" alt="{{ m.name }}">
-      <div class="musiker-card__content">
-        <h2 class="musiker-name">
-          <span class="musiker-name__first">{{ m.name.split(' ')[0] }}</span>
-          <span class="musiker-name__last">{{ m.name.split(' ').slice(1).join(' ') }}</span>
-        </h2>
-        <p class="muted">{{ m.instrument }}</p>
-        <p>{{ m.bio }}</p>
-      </div>
-    </article>
-  {% endfor %}
-</section>
 
 
 
