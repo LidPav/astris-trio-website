@@ -34,9 +34,8 @@ jobs:
         working-directory: astris-site
         run: npm run build
 
-      - name: Debug: list built output
+      - name: Debug list built output
         working-directory: astris-site
-        shell: bash
         run: |
           echo "---- list _site ----"
           ls -la _site | head -n 50
