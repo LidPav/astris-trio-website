@@ -766,3 +766,9 @@ h2{
   flex: 0 0 260px;   /* <- NEU: verhindert Shrinking im Flex-Layout */
 }
 
+.musiker-card__image--vay{
+  object-position: 50% 12%;
+}
+.musiker-grid article img.musiker-card__image{
+  flex: 0 0 260px;
+}
