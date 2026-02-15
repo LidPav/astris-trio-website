@@ -754,3 +754,15 @@ h2{
 .repertoire__epoch {
   color: #2B4EA2; /* Königsblau */
 }
+
+.musiker-grid article img.musiker-card__image{
+  width: 260px;
+  height: 260px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 1rem;
+  flex: 0 0 260px;   /* <- NEU: verhindert Shrinking im Flex-Layout */
+}
+
