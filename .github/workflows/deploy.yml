@@ -34,6 +34,15 @@ jobs:
         working-directory: astris-site
         run: npm run build
 
+      - name: Debug: list built output
+        working-directory: astris-site
+        shell: bash
+        run: |
+          echo "---- list _site ----"
+          ls -la _site | head -n 50
+          echo "---- show _site/index.html title ----"
+          grep -i "<title>" _site/index.html | head -n 5 || true
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -49,12 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
-      - name: Debug: list built output
-        working-directory: astris-site
-        run: |
-          echo "---- list _site ----"
-          ls -la _site | head -n 50
-          echo "---- show _site/index.html title ----"
-          grep -i "<title>" _site/index.html | head -n 5 || true
