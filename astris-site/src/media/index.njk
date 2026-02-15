@@ -7,7 +7,7 @@ description: Videos & Aufnahmen
 <h1>Medien</h1>
 <p class="lead">Ausgewählte Videoaufnahmen</p>
 
-<div class="list">
+<div class="media-list">
   {% for v in media.videos %}
     <div class="card">
       <h2 class="h2">{{ v.title }}</h2>
@@ -27,28 +27,3 @@ description: Videos & Aufnahmen
     </div>
   {% endfor %}
 </div>
-
-<h1>Medien</h1>
-<p class="lead">Ausgewählte Videoaufnahmen</p>
-
-<div class="grid grid-2">
-  {% for v in media.videos %}
-    <div class="card">
-      <h2>{{ v.title }}</h2>
-      {% if v.meta %}
-        <p class="muted small">{{ v.meta }}</p>
-      {% endif %}
-
-      <div class="video-embed">
-        <iframe
-          src="https://www.youtube.com/embed/{{ v.youtubeId }}"
-          title="{{ v.title | escape }}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  {% endfor %}
-</div>
-
