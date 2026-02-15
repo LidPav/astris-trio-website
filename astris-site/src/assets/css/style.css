@@ -839,3 +839,26 @@ h2{
   opacity: .6;
 }
 
+/* Medien-Seite (1-Spalte) */
+.media-list{
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  margin-top: 26px;
+}
+
+.media-list .card{
+  padding: 26px 28px;
+}
+
+.media-list h2{
+  margin: 0 0 6px 0;
+}
+
+.small{ font-size: .92rem; }
+
+.video-embed{
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow: hidden;
+}
