@@ -24,32 +24,174 @@ description: Booking & Kontakt
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
 
-    <form action="https://formspree.io/f/meelkjon" method="POST">
+    <form action="https://formspree.io/f/meelkjon" method="POST" data-ajax="true">
+
+      <!-- Zeitbasierter Spam-Schutz -->
+      <input type="hidden" id="form_start_time" name="form_start_time" value="">
+
+      <!-- Honeypot -->
+      <p class="visually-hidden" aria-hidden="true">
+        <label for="website">Website (leer lassen)</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </p>
 
       <div class="form-row">
         <label for="name">Name*</label>
-        <input id="name" name="name" required>
+        <input id="name" name="name" required autocomplete="name" placeholder="Ihr Name">
       </div>
 
       <div class="form-row">
         <label for="email">E‑Mail*</label>
-        <input id="email" name="email" type="email" required>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com">
       </div>
 
       <div class="form-row">
         <label for="subject">Betreff</label>
-        <input id="subject" name="subject">
+        <input id="subject" name="subject" placeholder="Betreff (optional)">
       </div>
 
       <div class="form-row">
         <label for="message">Nachricht*</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
+        <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht"></textarea>
       </div>
 
       <button type="submit" class="btn">Nachricht senden</button>
 
-    </form>
+      <!-- Erfolgs-/Fehlermeldung -->
+      <p id="form-status" class="status" role="status" aria-live="polite"></p>
 
+      <p class="form-privacy small">
+        Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Beantwortung Ihrer Anfrage verarbeiten.
+        Details dazu in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.
+      </p>
+
+    </form>
   </div>
 
 </div>
+
+<style>
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: .25rem;
+  font-weight: 600;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: .6rem .8rem;
+  border: 1px solid #ccd2d8;
+  border-radius: .5rem;
+  background: #fff;
+  font-size: 1rem;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #1759ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(23,89,255,0.15);
+}
+
+.status {
+  margin-top: 1rem;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  display: none;
+}
+
+.status.success {
+  display: block;
+  background: #e8f8ef;
+  color: #0a7b34;
+  border: 1px solid #a6e5c1;
+}
+
+.status.error {
+  display: block;
+  background: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5b7b7;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+
+<script>
+// Zeitstempel setzen
+window.addEventListener("DOMContentLoaded", () => {
+  const f = document.getElementById("form_start_time");
+  if (f) f.value = Date.now();
+});
+
+// AJAX + Spam Checks
+document.addEventListener("submit", async (e) => {
+  const form = e.target;
+  if (!form.matches('form[data-ajax="true"]')) return;
+  e.preventDefault();
+
+  const status = document.getElementById("form-status");
+
+  // Honeypot
+  const hp = form.querySelector('input[name="website"]');
+  if (hp.value.trim() !== "") {
+    status.className = "status error";
+    status.textContent = "Spam blockiert.";
+    return;
+  }
+
+  // Zeitprüfung
+  const ts = form.querySelector('#form_start_time');
+  const diff = Date.now() - parseInt(ts.value);
+  if (diff < 3000) {
+    status.className = "status error";
+    status.textContent = "Verdächtig schnelles Absenden blockiert.";
+    return;
+  }
+
+  status.className = "status";
+  status.textContent = "Senden …";
+  status.style.display = "block";
+
+  try {
+    const data = Object.fromEntries(new FormData(form).entries());
+    const res = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      status.className = "status success";
+      status.textContent = "Danke! Ihre Nachricht wurde erfolgreich gesendet.";
+      form.reset();
+      ts.value = Date.now();
+    } else {
+      status.className = "status error";
+      status.textContent = "Fehler beim Senden.";
+    }
+
+  } catch (err) {
+    status.className = "status error";
+    status.textContent = "Netzwerkfehler. Bitte später erneut versuchen.";
+  }
+});
+</script>
