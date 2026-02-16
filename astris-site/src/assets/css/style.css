@@ -927,7 +927,7 @@ h2{
 .header-photos img:nth-child(2){ object-position: 40% 42%; }
 .header-photos img:nth-child(3){
   object-position: 50% 35%;
-  transform: scale(0.90);   /* rechtes Bild noch etwas mehr rauszoomen */
+  transform: scale(0.80);   /* rechtes Bild noch etwas mehr rauszoomen */
 }
 
 
