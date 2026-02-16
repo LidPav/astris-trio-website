@@ -877,3 +877,7 @@ h2{
 }
 .form .btn { margin-top: .5rem; }
 .visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+#form-status { margin-top:.5rem; }
+#form-status.success { color: #0a7b34; }
+#form-status.error { color: #b00020; }
