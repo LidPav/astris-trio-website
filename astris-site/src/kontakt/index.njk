@@ -7,9 +7,64 @@ description: Booking & Kontakt
 <h1 class="h1">Kontakt</h1>
 <p class="lead">Für Konzertanfragen, Programme und Pressematerial freuen wir uns über eine Nachricht.</p>
 
-<p class="small">
-  E-Mail:
-  <a href="mailto:{{ site.email }}?subject=Anfrage%20Astris%20Trio&amp;body=Hallo%2C%0D%0A">
-    {{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}
-  </a>
-</p>
+<div class="grid">
+
+  <!-- Karte 1: Kontakt / E-Mail -->
+  <div class="card">
+    <h2 class="h2">Kontakt</h2>
+    <p class="small">
+      E‑Mail:
+      <a
+        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,' | urlencode }}"
+      >
+        {{ site.email }}
+      </a>
+    </p>
+  </div>
+
+  <!-- Karte 2: Kontaktformular (Formspree-Beispiel; ersetze die Action-URL) -->
+  <div class="card">
+    <h2 class="h2">Kontaktformular</h2>
+    <form class="form" action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
+      <!-- Honeypot gegen Spam -->
+      <p class="visually-hidden" aria-hidden="true">
+        <label for="website">Website (leer lassen)</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </p>
+
+      <div class="form-row">
+        <label for="name">Name<span aria-hidden="true">*</span></label>
+        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Ihr Name" aria-required="true" />
+      </div>
+
+      <div class="form-row">
+        <label for="email">E‑Mail<span aria-hidden="true">*</span></label>
+        <input id="email" name="_replyto" type="email" required autocomplete="email" placeholder="name@example.com" aria-required="true" />
+      </div>
+
+      <div class="form-row">
+        <label for="subject">Betreff</label>
+        <input id="subject" name="subject" type="text" placeholder="Betreff (optional)" />
+      </div>
+
+      <div class="form-row">
+        <label for="message">Nachricht<span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht" aria-required="true"></textarea>
+      </div>
+
+      <!-- Meta -->
+      <input type="hidden" name="_subject" value="Kontakt Astris Trio" />
+      <input type="hidden" name="_language" value="de" />
+      <!-- Optional: Erfolg-Redirect -->
+      <!-- <input type="hidden" name="_next" value="/danke/" /> -->
+
+      <button type="submit" class="btn">Nachricht senden</button>
+
+      <p class="form-privacy small">
+        Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Beantwortung Ihrer Anfrage verarbeiten.
+        Details in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.
+      </p>
+    </form>
+  </div>
+
+</div>
