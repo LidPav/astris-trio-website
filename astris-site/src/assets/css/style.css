@@ -905,46 +905,6 @@ h2{
    FINAL: Panorama-Header (3 Bilder, stabil)
    ======================================================= */
 
-.header {
-  position: relative;
-  overflow: hidden;
-  background: #000;
-  min-height: 200px;
-}
-@media (min-width: 768px) { .header { min-height: 240px; } }
-@media (min-width: 1024px) { .header { min-height: 280px; } }
-
-/* Bildgrößen & Positionen */
-:root {
-  --img-width: 30%;     /* kompakt */
-  --img-opacity: 0.60;
-
-  --p1x: 0%;            /* linkes Bild */
-  --p2x: 33%;           /* mittleres Bild nach links */
-  --p3x: 66%;           /* rechtes Bild klar rechts */
-
-  --p1y: 35%;
-  --p2y: 45%;
-  --p3y: 38%;
-}
-
-/* Die drei Headerbilder */
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
-    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
-    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
-
-  opacity: var(--img-opacity);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  z-index: 0;
-}
-
 /* Spotlight nur hinter dem Logo */
 .brand-logo {
   position: relative;
