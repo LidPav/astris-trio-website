@@ -14,22 +14,22 @@ description: Booking & Kontakt
     <h2 class="h2">Kontakt</h2>
     <p class="small">
       E‑Mail:
-      mailto:{{ site.email | replace(
+      mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,\n\nich habe eine Anfrage.' | urlencode }}">
         {{ site.email }}
       </a>
     </p>
   </div>
 
-  <!-- Karte 2: Kontaktformular (AJAX + Formspree) -->
+  <!-- Karte 2: Kontaktformular -->
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
 
     https://formspree.io/f/meelkjon" data-ajax="true" accept-charset="UTF-8">
 
-      <!-- Zeit-basierte Spam-Erkennung -->
+      <!-- Zeitbasierte Spam-Erkennung -->
       <input type="hidden" id="form_start_time" name="form_start_time" value="">
 
-      <!-- Honeypot (unsichtbar für echte Nutzer) -->
+      <!-- Honeypot-Feld -->
       <p class="visually-hidden" aria-hidden="true">
         <label for="website">Website (leer lassen)</label>
         <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
@@ -55,16 +55,12 @@ description: Booking & Kontakt
         <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht" aria-required="true"></textarea>
       </div>
 
-      <!-- Formspree Meta -->
-      <input type="hidden" name="_subject" value="Kontakt Astris Trio">
-      <input type="hidden" name="_language" value="de">
-
-      <!-- Kein Redirect – Erfolgsmeldung bleibt auf Seite -->
-      <!-- <input type="hidden" name="_next" value="/danke/"> -->
+      <input type="hidden" name="_subject" value="Kontakt Astris Trio" />
+      <input type="hidden" name="_language" value="de" />
 
       <button type="submit" class="btn">Nachricht senden</button>
 
-      <!-- Inline-Status für Erfolg/Fehler -->
+      <!-- Inline-Status -->
       <p id="form-status" class="small" role="status" aria-live="polite" style="margin-top:.5rem;"></p>
 
       <p class="form-privacy small">
@@ -78,48 +74,49 @@ description: Booking & Kontakt
 </div> <!-- /grid -->
 
 
-<!-- JAVASCRIPT: AJAX + Honeypot + Zeitbasierte Erkennung -->
+<!-- JAVASCRIPT: AJAX + Honeypot + Zeitprüfung -->
 <script>
-// Zeitstempel setzen, wenn die Seite geladen ist
+// Zeitstempel setzen, wenn Seite geladen ist
 window.addEventListener("DOMContentLoaded", function () {
   const startField = document.getElementById("form_start_time");
   if (startField) startField.value = Date.now();
 });
 
-// AJAX-Submit + Spam-Prüfungen
+// AJAX + Spam-Checks
 document.addEventListener("submit", async function (e) {
   const form = e.target;
-  if (!form.matches('form[data-ajax="true"]')) return; // Nur dieses Formular
 
-  // Browser-Validierung
+  if (!form.matches('form[data-ajax="true"]')) return;
+
   if (!form.checkValidity()) return;
+
+  e.preventDefault();
+
+  const statusEl = document.getElementById("form-status");
 
   // Honeypot
   const honeypot = form.querySelector('input[name="website"]');
   if (honeypot && honeypot.value) {
-    e.preventDefault();
-    console.warn("Spam blockiert (Honeypot).");
+    statusEl.style.color = "red";
+    statusEl.textContent = "Spam erkannt.";
     return false;
   }
 
-  // Zeitprüfung: <3 Sekunden → Bot
+  // Zeitprüfung
   const startField = form.querySelector("#form_start_time");
   if (startField && startField.value) {
     const diff = Date.now() - parseInt(startField.value, 10);
     if (diff < 3000) {
-      e.preventDefault();
-      console.warn("Spam blockiert (zu schnell: " + diff + " ms)");
+      statusEl.style.color = "red";
+      statusEl.textContent = "Verdächtig schnelles Absenden blockiert.";
       return false;
     }
   }
 
-  // Eigentliches Absenden per AJAX
-  e.preventDefault();
-
-  const statusEl = document.getElementById("form-status");
-  statusEl.textContent = "Senden …";
   statusEl.style.color = "#555";
+  statusEl.textContent = "Senden …";
 
+  // AJAX an Formspree
   try {
     const data = Object.fromEntries(new FormData(form).entries());
 
@@ -136,10 +133,7 @@ document.addEventListener("submit", async function (e) {
       statusEl.style.color = "green";
       statusEl.textContent = "Danke! Ihre Nachricht wurde erfolgreich gesendet.";
       form.reset();
-
-      // neuen Startwert setzen, damit erneutes Absenden nicht geblockt wird
-      document.getElementById("form_start_time").value = Date.now();
-
+      startField.value = Date.now();
     } else {
       statusEl.style.color = "red";
       statusEl.textContent = "Fehler beim Senden. Bitte später erneut versuchen.";
@@ -149,5 +143,6 @@ document.addEventListener("submit", async function (e) {
     statusEl.style.color = "red";
     statusEl.textContent = "Netzwerkfehler. Bitte später erneut versuchen.";
   }
+
 }, true);
 </script>
