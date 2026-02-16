@@ -927,22 +927,6 @@ h2{
   z-index:0;
 }
 
-
-/* spotlight behind logo */
-.brand-logo {
-  position: relative;
-  z-index: 3;
-}
-.brand-logo::before {
-  content: "";
-  position: absolute;
-  inset: -10px -18px -10px -18px;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(10px) saturate(130%);
-  border-radius: 14px;
-  z-index: -1;
-}
-
 /* navigation readable on dark images */
 .nav__link {
   color: #fff !important;
