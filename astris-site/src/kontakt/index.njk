@@ -7,9 +7,9 @@ description: Booking & Kontakt
 <h1 class="h1">Kontakt</h1>
 <p class="lead">Für Konzertanfragen, Programme und Pressematerial freuen wir uns über eine Nachricht.</p>
 
-<div class="grid">
-  <div class="card">
-    <h2 class="h2">Booking</h2>
-    <p class="small">E-Mail: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-    </div>
-</div>
+<p class="small">
+  E-Mail:
+  <a href="mailto:{{ site.email }}?subject=Anfrage%20Astris%20Trio&amp;body=Hallo%2C%0D%0A">
+    {{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}
+  </a>
+</p>
