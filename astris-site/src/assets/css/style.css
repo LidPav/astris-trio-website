@@ -920,58 +920,69 @@ h2{
   padding-bottom: 2rem;
 }
 
-/* === Panorama Header Background (3 images, fully visible width, optimized focus) === */
+/* === Panorama Header Background (3 images) — kompakter, 10–15% kleiner, optimierte Bild-Ausschnitte === */
 
 .header {
   position: relative;
   overflow: hidden;
   background: #000;
-  min-height: 340px; /* sanft, nicht zu niedrig */
+  /* Höhe etwas schmaler */
+  min-height: 260px;               /* mobile */
 }
+@media (min-width: 768px)  { .header { min-height: 300px; } }   /* tablet  */
+@media (min-width: 1024px) { .header { min-height: 360px; } }   /* desktop */
 
-@media (min-width: 1024px) {
-  .header {
-    min-height: 420px; /* Desktop – mehr Raum für komplette Bildbreite */
-  }
-}
-
-/* Feintuning: Fokuspunkte pro Bild */
+/* Feintuning-Variablen:
+   - --img-width: Bildbreite je Layer (kleiner => wirkt "runterskaliert")
+   - --p* y: vertikale Fokusposition (0%=oben, 100%=unten)
+   - --p* x: horizontale Fokusposition in % (0%=links, 50%=Mitte, 100%=rechts)
+*/
 :root {
-  --p1y: 30%;  /* Bild links */
-  --p2y: 45%;  /* Bild mitte */
-  --p3y: 35%;  /* Bild rechts */
+  /* Skalierung ~10–15% kleiner als vorher (zuvor ~38–40%) */
+  --img-width: 33%;
 
-  --img-width: 38%;   /* Überlappung, sorgt für sichtbare Breite */
-  --img-opacity: 0.58; /* Helligkeit */
+  /* Vertikale Fokuspunkte (Ausschnitt so, dass Köpfe/Instrumente im Blick bleiben) */
+  --p1y: 32%;   /* linkes Bild (25.jpg) minimal höher als Mitte */
+  --p2y: 46%;   /* mittleres Bild (27.jpg) etwas unter Mitte */
+  --p3y: 36%;   /* rechtes Bild (32.jpg) leicht über Mitte */
+
+  /* Horizontale Fokusverschiebung:
+     - Mitte nach links schieben, um mehr vom linken Bereich zu zeigen
+     - Rechts ebenfalls nach links schieben, damit der linke Rand stärker sichtbar ist
+  */
+  --p1x: 0%;    /* linkes Bild bleibt links verankert */
+  --p2x: 42%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
+  --p3x: 35%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
+
+  /* Bildhelligkeit (bei Bedarf anpassen, 0.45–0.62 sind üblich) */
+  --img-opacity: 0.58;
 }
 
 .header::before {
   content: "";
   position: absolute;
   inset: 0;
-
   background:
-    url("/assets/img/25.jpg") left var(--p1y) / var(--img-width) auto no-repeat,
-    url("/assets/img/27.jpg") center var(--p2y) / var(--img-width) auto no-repeat,
-    url("/assets/img/32.jpg") right var(--p3y) / var(--img-width) auto no-repeat;
-
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
   opacity: var(--img-opacity);
   z-index: 0;
 
-  /* Bonus: sanfter Fade nach unten */
+  /* Sanfter Fade nach unten (Bonus) */
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
           mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
-/* Logo + Navigation gut lesbar */
+/* Header-Content über dem Hintergrund, mit "Glass"-Hintergrund für Lesbarkeit */
 .header__inner {
   position: relative;
   z-index: 2;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;   /* bei schmalerem Header etwas kompakter */
+  padding-bottom: 1.5rem;
 }
 
-/* dezente Hintergrundfläche für Navigation (Glass Effect) */
+/* dezente „Glas“-Fläche hinter Logo + Navigation */
 .header__inner::before {
   content: "";
   position: absolute;
@@ -982,19 +993,18 @@ h2{
   z-index: -1;
 }
 
-/* Navigation lesbar */
+/* Navigation weiterhin gut lesbar */
 .nav__link {
   color: #fff !important;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
   padding: .25rem .5rem;
   border-radius: 4px;
 }
-
 .nav__link:hover {
   background: rgba(255,255,255,.08);
 }
 
-/* Mobile: etwas breiterer Bildanteil verbessert Look */
+/* Mobile: etwas breiter für harmonische Überdeckung */
 @media (max-width: 480px) {
-  :root { --img-width: 50%; }
+  :root { --img-width: 46%; } /* vorher 50%, jetzt dezenter, aber noch bildstark */
 }
