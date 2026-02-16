@@ -887,16 +887,19 @@ h2{
    ======================================================= */
 
 :root {
-  --img-width: 34%;
+  /* Bildbreite: etwas größer, um den rechten Rand zu füllen */
+  --img-width: 37%;
   --img-opacity: 0.60;
 
-  --p1x: 0%;     /* linkes Bild bleibt links */
-  --p2x: 25%;    /* Mitte deutlich weiter nach links */
-  --p3x: 54%;    /* rechte Position nach links ziehen */
+  /* horizontale Positionen */
+  --p1x: -4%;      /* linkes Bild etwas nach links verschieben */
+  --p2x: 30%;      /* mittleres Bild weiter nach links */
+  --p3x: 63%;      /* rechtes Bild weiter nach rechts – füllt die Lücke */
 
-  --p1y: 38%;
+  /* vertikale Positionen */
+  --p1y: 40%;
   --p2y: 42%;
-  --p3y: 40%;
+  --p3y: 41%;
 }
 
 .header {
