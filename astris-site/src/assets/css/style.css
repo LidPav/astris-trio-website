@@ -917,6 +917,7 @@ h2{
   content:"";
   position:absolute;
   inset:0;
+  pointer-events: none; /* <- WICHTIG: Menü bleibt klickbar */
   background:
     url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) 100% no-repeat,
     url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) 100% no-repeat,
@@ -925,6 +926,10 @@ h2{
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
           mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   z-index:0;
+}
+.header__inner{
+  position: relative;
+  z-index: 2;
 }
 
 /* navigation readable on dark images */
