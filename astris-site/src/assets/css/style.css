@@ -882,61 +882,62 @@ h2{
 #form-status.success { color: #0a7b34; }
 #form-status.error { color: #b00020; }
 
-/* =======================================================
-   CLEAN FINAL HEADER (3 images, stable, readable menu)
-   ======================================================= */
+/* ===============================
+   Header-Fotos als echtes Grid
+   =============================== */
 
-:root {
-  --img-width: 33.333%;
-  --img-opacity: 0.60;
-
-  --p1x: 0%;
-  --p2x: 33.333%;
-  --p3x: 66.666%;
-
-  --p1y: 40%;
-  --p2y: 40%;
-  --p3y: 40%;
-}
-
-
-.header {
-  position: relative;
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
   overflow: hidden;
-  background: #000;
-  min-height: 200px;
-}
-@media (min-width: 768px) {
-  .header { min-height: 240px; }
-}
-@media (min-width: 1024px) {
-  .header { min-height: 280px; }
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1.5px solid #D4AF37;
 }
 
-.header::before{
+/* Bildstreifen */
+.header-photos{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.header-photos img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.60;
+  filter: saturate(1.05);
+}
+
+/* individueller Zuschnitt (damit Köpfe passen) */
+.header-photos img:nth-child(1){ object-position: 15% 40%; }
+.header-photos img:nth-child(2){ object-position: 40% 42%; }
+.header-photos img:nth-child(3){ object-position: 55% 40%; }
+
+/* sanfter Fade nach unten */
+.header-photos::after{
   content:"";
   position:absolute;
   inset:0;
-  pointer-events: none; /* <- WICHTIG: Menü bleibt klickbar */
-  background:
-    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) 100% no-repeat,
-    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) 100% no-repeat,
-    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) 100% no-repeat;
-  opacity: var(--img-opacity);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  z-index:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,0) 100%);
 }
+
+/* Navigation/Logo oben halten */
 .header__inner{
   position: relative;
   z-index: 2;
 }
 
-/* navigation readable on dark images */
-.nav__link {
-  color: #fff !important;
+/* Navigation lesbar auf Fotos */
+.nav__link{
+  color:#fff;
   text-shadow: 0 1px 2px rgba(0,0,0,.75);
 }
-.nav__link:hover {
+.nav__link:hover{
   background: rgba(255,255,255,0.10);
 }
