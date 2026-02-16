@@ -987,3 +987,64 @@ h2{
   background: #000;          /* füllt die "Luft" sauber */
   }
 
+/* Mobile-Optimierungen: unter 860px */
+@media (max-width: 860px) {
+  /* Header kleiner machen */
+  .header {
+    min-height: 160px; /* vorher 240+ */
+    background: #000;
+  }
+
+  /* Fotos als einspaltiges Grid / besseres Sichtfenster */
+  .header-photos {
+    grid-template-columns: 1fr; /* Stapelt die drei Bilder untereinander */
+    align-items: center;
+  }
+  .header-photos img{
+    transform: scale(1.02); /* weniger reinzoomen */
+    opacity: 0.65;
+    height: auto;
+    min-height: 120px; /* sorgt für sichtbaren Streifen */
+    object-position: 50% 40%;
+  }
+
+  /* Menü-Kasten: kompakt + zweizeilig statt überlappend */
+  .header__inner{
+    margin: 10px auto;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;  /* Logo über der Nav */
+    gap: 10px;
+    align-items: stretch;
+    width: calc(100% - 28px); /* etwas Rand */
+    max-width: 980px;
+    background: rgba(0,0,0,.12);
+    border-radius: 12px;
+  }
+
+  /* Logo & Nav jeweils in einer Zeile */
+  .brand-logo{ order: 0; align-self: start; }
+  .nav{ 
+    order: 1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 10px;
+    justify-content:flex-start;
+  }
+  .nav__link{
+    padding: 6px 8px;
+    font-size: 0.95rem;
+  }
+
+  /* Wenn du die Fotos sehr dezent willst, kannst du sie ausblenden */
+  /* .header-photos { display: none; } */
+}
+
+/* Sehr kleine Bildschirme: noch kompakter */
+@media (max-width: 420px) {
+  .header { min-height: 120px; }
+  .header-photos img { min-height: 90px; }
+  .nav__link { font-size: 0.9rem; padding: 6px 6px; }
+  .brand-logo img { height: 30px; }
+}
+
