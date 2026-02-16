@@ -887,20 +887,18 @@ h2{
    ======================================================= */
 
 :root {
-  /* Bildbreite: etwas größer, um den rechten Rand zu füllen */
-  --img-width: 37%;
+  --img-width: 33.333%;
   --img-opacity: 0.60;
 
-  /* horizontale Positionen */
-  --p1x: -4%;      /* linkes Bild etwas nach links verschieben */
-  --p2x: 30%;      /* mittleres Bild weiter nach links */
-  --p3x: 63%;      /* rechtes Bild weiter nach rechts – füllt die Lücke */
+  --p1x: 0%;
+  --p2x: 33.333%;
+  --p3x: 66.666%;
 
-  /* vertikale Positionen */
   --p1y: 40%;
-  --p2y: 42%;
-  --p3y: 41%;
+  --p2y: 40%;
+  --p3y: 40%;
 }
+
 
 .header {
   position: relative;
@@ -915,19 +913,20 @@ h2{
   .header { min-height: 280px; }
 }
 
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+.header::before{
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
-    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
-    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) 100% no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) 100% no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) 100% no-repeat;
   opacity: var(--img-opacity);
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
           mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  z-index: 0;
+  z-index:0;
 }
+
 
 /* spotlight behind logo */
 .brand-logo {
