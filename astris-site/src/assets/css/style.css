@@ -968,6 +968,10 @@ h2{
   height: 100%;
   opacity: 0.70;
 }
+.header-photos{
+  grid-template-columns: 1fr 1fr 1.6fr; /* rechts breiter */
+}
+
 
 /* 1 & 2: cover ok */
 .header-photos img:nth-child(1),
@@ -978,6 +982,7 @@ h2{
 /* 3: NICHT mehr abschneiden */
 .header-photos img:nth-child(3){
   object-fit: contain;
+  scale(1.06);
   background: #000;          /* füllt die "Luft" sauber */
   }
 
