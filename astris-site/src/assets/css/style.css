@@ -951,7 +951,7 @@ h2{
      - Rechts ebenfalls nach links schieben, damit der linke Rand stärker sichtbar ist
   */
   --p1x: 0%;    /* linkes Bild bleibt links verankert */
-  --p2x: 42%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
+  --p2x: 40%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
   --p3x: 35%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
 
   /* Bildhelligkeit (bei Bedarf anpassen, 0.45–0.62 sind üblich) */
