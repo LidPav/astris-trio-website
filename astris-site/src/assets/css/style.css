@@ -1,59 +1,1069 @@
-/* ============================================================
-   FIX: Panorama ohne schwarze Zwischenräume
-   ============================================================ */
-
-:root {
-  --img-width: 30%;      /* kompakt, aber ohne Lücken */
-  --img-opacity: 0.58;
-
-  /* Vertikale Fokuspunkte */
-  --p1y: 34%;
-  --p2y: 46%;
-  --p3y: 36%;
-
-  /* Horizontale Fokuspunkte */
-  --p1x: 0%;    /* Linkes Bild startet links */
-  --p2x: 33%;   /* Mittleres deutlich nach links */
-  --p3x: 66%;   /* Rechtes Bild klar rechts — garantiert sichtbar */
+body{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+}
+h1, h2, h3{
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
-/* Reihenfolge: LINKS -> MITTE -> RECHTS
-   OHNE Lücken, da die Summe der Positionen den gesamten Bereich abdeckt  */
+h1{
+  font-weight: 500;
+}
+
+h2{
+  font-weight: 500;
+}
+
+h1{ letter-spacing: -0.03em; }
+h2{ letter-spacing: -0.01em; }
+
+p, li{
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.lead{
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 70ch;
+}
+
+
+strong{
+  font-weight: 500;
+}
+:root{
+  /* Hintergrund */
+  --bg:#f4f5f7;          /* sehr helles Grau */
+  --panel:#ffffff;       /* Karten: weiß */
+  --panel-alt:#eceff3;   /* Sektionen leicht abgesetzt */
+
+  /* Text */
+  --text:#1f2933;        /* dunkles Grau */
+  --muted:#5f6b7a;       /* ruhiger Text */
+
+  /* Linien & Akzent */
+  --line:rgba(0,0,0,.08);
+  --accent:#3b5bcc;      /* klassisches Blau */
+
+  /* Effekte */
+  --shadow:0 8px 24px rgba(0,0,0,.06);
+  --radius:16px;
+  --max:1100px;
+}
+
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+}
+body{
+  background:
+    radial-gradient(900px 500px at 15% 0%, rgba(59,91,204,.08), transparent 60%),
+    radial-gradient(700px 420px at 85% 10%, rgba(0,0,0,.04), transparent 55%),
+    var(--bg);
+}
+
+a{
+  color: var(--text);
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(167,184,255,.45);
+}
+a:hover{
+  text-decoration-color: rgba(167,184,255,.9);
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:16px; top:16px; background:var(--panel); padding:10px 12px; border-radius:12px; border:1px solid var(--line); z-index:99}
+
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+
+  /* feine goldene Linie */
+  border-bottom: 1.5px solid #D4AF37;
+}
+
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  padding:24px 0;
+}
+
+.brand{display:flex; flex-direction:column; gap:2px}
+.brand__name{font-weight:650; letter-spacing:.2px}
+.brand__tag{color:var(--muted); font-size:.92rem}
+.nav{display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:flex-end}
+
+/* Navigation: gut lesbar */
+.nav__link{
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav__link:hover{
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.nav__link[aria-current="page"]{
+  color: var(--accent);
+  font-weight: 600;
+}
+.main{padding:34px 0 60px}
+h1,h2,h3{line-height:1.2; letter-spacing:-.02em}
+h1{font-size: clamp(2.0rem, 4vw, 3.0rem); margin:.2em 0 .35em}
+h2{font-size:1.35rem; margin:1.6em 0 .6em}
+p{margin:.7em 0}
+.muted{color:var(--muted)}
+
+.card{
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.06);
+  padding: 20px 20px;
+}
+.card + .card{ margin-top: 14px; }
+
+.grid{display:grid; gap:16px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 860px){.grid-2{grid-template-columns:1fr}}
+
+.btns{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 6px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.75);
+  color: var(--text);
+  font-size:.95rem;
+  text-decoration: none;
+  transition: transform .08s ease, border-color .12s ease, background .12s ease;
+}
+.btn:hover{
+  border-color: rgba(59,91,204,.35);
+  background: rgba(255,255,255,.95);
+  transform: translateY(-1px);
+}
+.btn--primary{
+  background: rgba(59,91,204,.10);
+  border-color: rgba(59,91,204,.25);
+}
+
+.hero-img{
+  width:100%; height:auto;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  margin:10px 0 18px;
+}
+
+.hero-image{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.musiker-grid article img.musiker-card__image{
+  width: 260px;
+  height: 260px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.musiker-grid article{
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.musiker-card__content{
+  flex: 1;
+}
+@media (max-width: 700px){
+  .musiker-grid article{
+    flex-direction: column;
+  }
+
+  .musiker-grid article img.musiker-card__image{
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.musiker-grid article{
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.musiker-grid article{
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.musiker-grid article:last-child{
+  border-bottom: none;
+}
+
+.video-embed{
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin: 1.5rem 0 2.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-embed iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero{
+  padding: 36px 0 38px;
+}
+
+.hero-inner{
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+  align-items: center;
+  gap: 36px;
+}
+
+.hero-text{
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hero-kicker{
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.hero .lead{
+  margin-top: 0.3rem;
+}
+
+.hero-image-wrap{
+  display: flex;
+  justify-content: center;
+}
+.hero-image{ max-width: 100%; }
+
+.hero-inner{
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 3fr);
+}
+
+.hero-image{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 860px){
+  .hero-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image{
+    max-width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .hero{
+    padding-top: 22px;
+  }
+}
+.home-section{
+  padding: 24px 0 40px;
+}
+
+.home-section h2{
+  margin-bottom: 0.6rem;
+}
+
+.home-section .card{
+  margin-top: 0.8rem;
+}
+/* Erzwinge Vorname / Nachname untereinander */
+.musiker-name{
+  margin: 0 0 0.35rem 0;
+  line-height: 1.05;
+}
+.musiker-name__first{
+  display: block;
+  font-weight: 600;
+}
+.musiker-name__last{
+  display: block;
+  font-weight: 500;
+  margin-top: 0.06rem;
+  color: var(--text);
+  opacity: 0.95;
+}
+
+.brand-logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo img{
+  height: 44px;
+  width: auto;
+}
+
+@media (min-width: 1100px){
+  .brand-logo img{
+    height: 48px;
+  }
+}
+
+@media (max-width: 520px){
+  .header__inner{
+    padding: 18px 0;
+  }
+
+  .brand-logo img{
+    height: 34px;
+  }
+}
+.main .wrap{
+  max-width: 980px; /* etwas schmaler = edler */
+}
+
+p{
+  max-width: 72ch;  /* bessere Lesbarkeit */
+}
+
+h1{
+  letter-spacing: -0.03em;
+}
+
+h2{
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+.section{
+  padding: 40px 0;
+}
+
+.section--alt{
+  background: #eceff3;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:36px;
+  height:2px;
+  background: var(--accent);
+  margin-top:8px;
+}
+.card--primary{
+  background: #ffffff;
+}
+
+.card--secondary{
+  background: #f0f2f5;
+}
+
+
+.footer-brand{
+  margin-top: 12px;
+}
+
+.footer-brand img{
+  display: block;
+  max-width: 200px;
+  height: auto;
+  opacity: 0.85;
+}
+.footer-brand img{
+  opacity: 0.75;
+}
+
+.footer{border-top:1px solid var(--line); padding:22px 0 34px; color:var(--muted)}
+.footer__inner{display:flex; align-items:flex-start; justify-content:space-between; gap:18px}
+.footer__links{display:flex; gap:14px; flex-wrap:wrap}
+.footer__links a{color:var(--muted)}
+.footer__links a:hover{color:var(--text)}
+
+/* Editorial Layout für Textseiten (Ensemble etc.) */
+.editorial{
+  padding: 10px 0 40px;
+}
+
+.editorial__header{
+  margin: 8px 0 20px;
+  padding: 18px 18px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
+}
+
+.editorial__title{
+  margin: 0.1em 0 0.35em;
+}
+
+.editorial__lead{
+  margin: 0;
+  max-width: 78ch;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.editorial__grid{
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 1.2fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.editorial__main{
+  padding: 18px 18px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
+}
+
+.editorial__main h2{
+  margin-top: 1.2rem;
+}
+
+.editorial__main p{
+  max-width: 75ch;
+}
+
+/* Sidebar */
+.aside-card{
+  padding: 16px 16px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
+  margin-bottom: 16px;
+}
+
+.aside-card--quote{
+  background:
+    radial-gradient(500px 220px at 10% 0%, rgba(59,91,204,.10), transparent 60%),
+    rgba(255,255,255,.72);
+}
+
+.quote{
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.quote-src{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .editorial__grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Repertoire Listen – ruhig & lesbar */
+.repertoire-list{
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 28px;
+}
+
+.repertoire-list li{
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  max-width: 72ch;
+}
+
+.repertoire-list li:last-child{
+  border-bottom: none;
+}
+.repertoire-list li{
+  font-weight: 500;
+}
+.repertoire-list li em{
+  font-style: italic;
+}
+
+
+/* Startseite: Sektion mit leicht abgesetztem Hintergrund */
+.home-section{
+  padding: 36px 0 44px;
+}
+.home-section--alt{
+  background: var(--panel-alt);
+}
+
+/* Überschrift + Button in einer Zeile */
+.home-split{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom: 14px;
+}
+.home-split__cta{
+  flex: 0 0 auto;
+}
+
+/* Repertoire-Teaser: 3 Spalten */
+.repertoire-teaser{
+  padding: 18px 18px;
+}
+.repertoire-teaser{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+}
+
+.repertoire-teaser__col h3{
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+}
+
+/* kleine Liste: ruhig, ohne Bullets */
+.repertoire-mini{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.repertoire-mini li{
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  max-width: 42ch;
+}
+.repertoire-mini li:last-child{
+  border-bottom: none;
+}
+
+@media (max-width: 900px){
+  .home-split{
+    align-items:flex-start;
+    flex-direction: column;
+  }
+  .repertoire-teaser{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Startseite: Programmkärtchen */
+.program-cards{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.program-card{
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.05);
+  padding: 18px 18px;
+}
+
+.program-kicker{
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.program-title{
+  margin: 0 0 10px 0;
+  font-size: 1.06rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 550;
+}
+
+.program-note{
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+/* Optional: sanfte Akzentfläche */
+.program-card:nth-child(1){
+  background:
+    radial-gradient(520px 240px at 10% 0%, rgba(59,91,204,.08), transparent 60%),
+    rgba(255,255,255,.82);
+}
+
+@media (max-width: 900px){
+  .program-cards{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero title: Astris Trio typographic mark */
+.hero-title{
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0.2em 0 0.35em;
+  line-height: 1;
+}
+
+/* ASTRIS */
+.hero-title__astris{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-weight: 500;
+  color: #2E3A8C; /* deep blue */
+  letter-spacing: 0.04em;
+}
+
+/* TRIO */
+.hero-title__trio{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(2.2rem, 4.2vw, 2.8rem);
+  font-weight: 500;
+  color: #bfc3c8; /* light grey / silver */
+  letter-spacing: 0.08em;
+}
+
+
+/* three dots */
+.hero-title__dots{
+  display: inline-flex;
+  gap: 6px;
+  transform: translateY(-0.25em);
+}
+
+.hero-title__dots span{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E3A8C;
+  display: block;
+}
+
+/* Mobile refinement */
+@media (max-width: 600px){
+  .hero-title{
+    gap: 10px;
+  }
+  .hero-title__dots span{
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Two-line hero mark: ASTRIS above (dots + TRIO) */
+.hero-mark{
+  display: inline-block;   /* shrink-wrap to ASTRIS width */
+  margin: 0.2em 0 0.35em;
+  line-height: 1;
+}
+
+
+.hero-mark__astris{
+  display: block;
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-weight: 500;
+  color: #2E3A8C;          /* deep blue */
+  letter-spacing: 0.05em;
+}
+
+.hero-mark__row2{
+  display: flex;
+  justify-content: flex-end;   /* 🔑 right-align */
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+  width: 100%;                 /* 🔑 take full width of ASTRIS */
+}
+
+
+/* dots */
+.hero-mark__dots{
+  display: inline-flex;
+  gap: 6px;
+  transform: translateY(-0.15em);  /* optically aligns dots with TRIO */
+}
+
+.hero-mark__dots span{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2E3A8C;
+  display: block;
+}
+
+/* TRIO */
+.hero-mark__trio{
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(2.2rem, 4.2vw, 2.8rem);
+  font-weight: 500;
+  color: #c7c7c7;           /* light grey / silver */
+  letter-spacing: 0.10em;
+}
+
+.repertoire__epoch { margin-top: 1.5rem; }
+.repertoire h4 { margin-top: 1rem; margin-bottom: .35rem; }
+.repertoire ul { margin: 0 0 1rem 1.25rem; }
+.editorial__lead { margin-bottom: 1.25rem; }
+/* Repertoire-Epochen in Königsblau */
+.repertoire__epoch {
+  color: #2B4EA2; /* Königsblau */
+}
+
+.musiker-grid article img.musiker-card__image{
+  width: 260px;
+  height: 260px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 1rem;
+  flex: 0 0 260px;   /* <- NEU: verhindert Shrinking im Flex-Layout */
+}
+
+.musiker-card__image--vay{
+  object-position: 50% 2%;
+}
+.musiker-grid article img.musiker-card__image{
+  flex: 0 0 260px;
+}
+
+/* ===============================
+   Medien-Seite
+================================= */
+
+.small{
+  font-size: 0.92rem;
+}
+
+.card h2{
+  margin: 0 0 6px 0;
+}
+
+.card .muted.small{
+  margin: 0 0 12px 0;
+}
+
+.video-embed{
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.55);
+}
+
+/* ===============================
+   Medien-Seite (1-Spalte, editorial)
+================================= */
+
+.media-list{
+  display: flex;
+  flex-direction: column;
+  gap: 42px;          /* großzügiger Abstand zwischen Videos */
+  margin-top: 26px;
+}
+
+.media-list .card{
+  padding: 26px 28px;
+}
+
+.media-list h2{
+  margin: 0 0 6px 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.media-list .muted.small{
+  margin-bottom: 14px;
+  font-size: 0.92rem;
+}
+
+.video-embed{
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 14px 38px rgba(0,0,0,.07);
+}
+.media-list .card{
+  position: relative;
+}
+
+.media-list .card::after{
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 18px;
+  opacity: .6;
+}
+
+/* Medien-Seite (1-Spalte) */
+.media-list{
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  margin-top: 26px;
+}
+
+.media-list .card{
+  padding: 26px 28px;
+}
+
+.media-list h2{
+  margin: 0 0 6px 0;
+}
+
+.small{ font-size: .92rem; }
+
+.video-embed{
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.form .form-row { margin-bottom: 1rem; }
+.form label { display: block; font-weight: 600; margin-bottom: .25rem; }
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+  width: 100%;
+  max-width: 36rem;
+  padding: .6rem .75rem;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: .375rem;
+  background: #fff;
+}
+.form .btn { margin-top: .5rem; }
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+#form-status { margin-top:.5rem; }
+#form-status.success { color: #0a7b34; }
+#form-status.error { color: #b00020; }
+
+/* === Panorama Header Background (Trio) === */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  background: #000; /* dunkle Basis, wirkt edel */
+}
+
+/* Hintergrund mit 3 überlappenden Bildern */
 .header::before {
   content: "";
   position: absolute;
   inset: 0;
+  background:
+    url("/assets/img/25.jpg") left/40% auto no-repeat,
+    url("/assets/img/27.jpg") center/40% auto no-repeat,
+    url("/assets/img/32.jpg") right/40% auto no-repeat;
+  
+  opacity: 0.55; /* sichtbares, aber dezentes Trio */
+  z-index: 0;
 
+  /* Bonus: sanfter Fade nach unten */
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+/* Logo + Navigation bleiben über dem Hintergrund */
+.header__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: leichter Hintergrund für Lesbarkeit */
+.header__inner {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* === Panorama Header Background (3 images) — kompakter, 10–15% kleiner, optimierte Bild-Ausschnitte === */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  /* Höhe etwas schmaler */
+  min-height: 220px;               /* mobile */
+}
+@media (min-width: 768px)  { .header { min-height: 300px; } }   /* tablet  */
+@media (min-width: 1024px) { .header { min-height: 360px; } }   /* desktop */
+
+/* Feintuning-Variablen:
+   - --img-width: Bildbreite je Layer (kleiner => wirkt "runterskaliert")
+   - --p* y: vertikale Fokusposition (0%=oben, 100%=unten)
+   - --p* x: horizontale Fokusposition in % (0%=links, 50%=Mitte, 100%=rechts)
+*/
+:root {
+  /* Skalierung ~10–15% kleiner als vorher (zuvor ~38–40%) */
+  --img-width: 28%;
+
+  /* Vertikale Fokuspunkte (Ausschnitt so, dass Köpfe/Instrumente im Blick bleiben) */
+  --p1y: 32%;   /* linkes Bild (25.jpg) minimal höher als Mitte */
+  --p2y: 46%;   /* mittleres Bild (27.jpg) etwas unter Mitte */
+  --p3y: 36%;   /* rechtes Bild (32.jpg) leicht über Mitte */
+
+  /* Horizontale Fokusverschiebung:
+     - Mitte nach links schieben, um mehr vom linken Bereich zu zeigen
+     - Rechts ebenfalls nach links schieben, damit der linke Rand stärker sichtbar ist
+  */
+  --p1x: 0%;    /* linkes Bild bleibt links verankert */
+  --p2x: 38%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
+  --p3x: 32%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
+
+  /* Bildhelligkeit (bei Bedarf anpassen, 0.45–0.62 sind üblich) */
+  --img-opacity: 0.62;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
+  opacity: var(--img-opacity);
+  z-index: 0;
+
+  /* Sanfter Fade nach unten (Bonus) */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Header-Content über dem Hintergrund, mit "Glass"-Hintergrund für Lesbarkeit */
+.header__inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 1.5rem;   /* bei schmalerem Header etwas kompakter */
+  padding-bottom: 1.5rem;
+}
+
+/* dezente „Glas“-Fläche hinter Logo + Navigation */
+.header__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Navigation weiterhin gut lesbar */
+.nav__link {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  padding: .25rem .5rem;
+  border-radius: 4px;
+}
+.nav__link:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* Mobile: etwas breiter für harmonische Überdeckung */
+@media (max-width: 480px) {
+  :root { --img-width: 46%; } /* vorher 50%, jetzt dezenter, aber noch bildstark */
+}
+
+/* ============================================
+   Helles Spotlight NUR hinter dem Logo
+   ============================================ */
+
+.header__inner {
+  position: relative;
+}
+
+/* Heller Bereich nur hinter dem Logo selbst */
+.brand-logo {
+  position: relative;
+  z-index: 2; /* Logo über Overlay */
+}
+
+.brand-logo::before {
+  content: "";
+  position: absolute;
+  inset: -12px -20px -12px -20px; /* größerer Bereich um Logo herum */
+  background: rgba(255, 255, 255, 0.85); /* Helles, fast weißes Spotlight */
+  backdrop-filter: blur(8px) saturate(130%);
+  border-radius: 14px;
+  z-index: -1; /* liegt hinter Logo */
+}
+
+/* Navigation NICHT aufhellen – bleibt wie bisher */
+.nav__link {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+.nav__link:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* ============================================
+   Panorama-Header: rechtes Bild wieder sichtbar
+   ============================================ */
+
+:root {
+  --img-width: 33%;
+  --img-opacity: 0.58;
+
+  --p1x: 0%;
+  --p2x: 38%;
+  --p3x: 22%;   /* weiter nach links → Bild sichtbar */
+
+  --p1y: 32%;
+  --p2y: 46%;
+  --p3y: 35%;
+}
+
+.header::before {
   background:
     url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
     url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
     url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
 
   opacity: var(--img-opacity);
-
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  z-index: 0;
-}
-
-/* Header kompakter */
-.header {
-  min-height: 180px;
-}
-@media (min-width: 768px)  { .header { min-height: 230px; } }
-@media (min-width: 1024px) { .header { min-height: 280px; } }
-
-/* Spotlight NUR hinter dem Logo */
-.brand-logo {
-  position: relative;
-  z-index: 2;
-}
-.brand-logo::before {
-  content: "";
-  position: absolute;
-  inset: -10px -18px -10px -18px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px) saturate(130%);
-  border-radius: 14px;
-  z-index: -1;
 }
