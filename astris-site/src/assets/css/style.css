@@ -887,12 +887,12 @@ h2{
    ======================================================= */
 
 :root {
-  --img-width: 30%;
+  --img-width: 34%;
   --img-opacity: 0.60;
 
-  --p1x: 0%;     /* left image */
-  --p2x: 33%;    /* center image shifted left */
-  --p3x: 66%;    /* right image */
+  --p1x: 0%;     /* linkes Bild bleibt links */
+  --p2x: 25%;    /* Mitte deutlich weiter nach links */
+  --p3x: 54%;    /* rechte Position nach links ziehen */
 
   --p1y: 35%;    /* vertical positions */
   --p2y: 45%;
