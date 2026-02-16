@@ -920,26 +920,11 @@ h2{
   z-index: -1;
 }
 
-/* Navigation weiß & lesbar */
-.nav__link {
-  color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.65);
-}
-.nav__link:hover {
-  background: rgba(255,255,255,0.08);
-}
-
 /* =======================================================
    ABSOLUTE FINAL HEADER FIX (überschreibt alles davor)
    ======================================================= */
 
 /* 1) Header-Grundlayout */
-.header {
-  position: relative !important;
-  overflow: hidden !important;
-  background: #000 !important;
-  min-height: 200px !important;
-}
 @media (min-width: 768px) {
   .header { min-height: 240px !important; }
 }
@@ -948,60 +933,78 @@ h2{
 }
 
 /* 2) Header-Variablen (NUR diese sollen gelten) */
-:root {
-  --img-width: 30%;
-  --img-opacity: 0.60;
-
-  /* horizontale Position (0% links → 33% → 66%) */
-  --p1x: 0%;
-  --p2x: 33%;
-  --p3x: 66%;
-
-  /* vertikale Ausschnitte */
-  --p1y: 35%;
-  --p2y: 45%;
-  --p3y: 38%;
-}
 
 /* 3) DIE DREI BILDER (vollständig, ohne Lücken) */
-.header::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-
-  background:
-    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
-    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
-    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat
-    !important;
-
-  opacity: var(--img-opacity) !important;
-
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
-          mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
-}
-
 /* 4) Spotlight unter dem Logo (NAV bleibt frei) */
 .brand-logo {
   position: relative !important;
   z-index: 3 !important;
 }
-.brand-logo::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: -10px -18px -10px -18px !important;
-  background: rgba(255,255,255,0.88) !important;
-  backdrop-filter: blur(10px) saturate(130%) !important;
-  border-radius: 14px !important;
-  z-index: -1 !important;
+
+/* =======================================================
+   CLEAN FINAL HEADER (3 images, stable, readable menu)
+   ======================================================= */
+
+:root {
+  --img-width: 30%;
+  --img-opacity: 0.60;
+
+  --p1x: 0%;     /* left image */
+  --p2x: 33%;    /* center image shifted left */
+  --p3x: 66%;    /* right image */
+
+  --p1y: 35%;    /* vertical positions */
+  --p2y: 45%;
+  --p3y: 38%;
 }
 
-/* 5) Navigation LESBAR */
+.header {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  min-height: 200px;
+}
+@media (min-width: 768px) {
+  .header { min-height: 240px; }
+}
+@media (min-width: 1024px) {
+  .header { min-height: 280px; }
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
+  opacity: var(--img-opacity);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  z-index: 0;
+}
+
+/* spotlight behind logo */
+.brand-logo {
+  position: relative;
+  z-index: 3;
+}
+.brand-logo::before {
+  content: "";
+  position: absolute;
+  inset: -10px -18px -10px -18px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px) saturate(130%);
+  border-radius: 14px;
+  z-index: -1;
+}
+
+/* navigation readable on dark images */
 .nav__link {
   color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.75) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.75);
 }
 .nav__link:hover {
-  background: rgba(255,255,255,0.10) !important;
+  background: rgba(255,255,255,0.10);
 }
