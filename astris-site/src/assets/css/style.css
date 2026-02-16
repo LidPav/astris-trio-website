@@ -883,13 +883,64 @@ h2{
 #form-status.error { color: #b00020; }
 
 /* =======================================================
-   FINAL: Panorama-Header (3 Bilder, keine Lücken, kompakt)
-   ======================================================= */
-
-/* =======================================================
    Helles Spotlight NUR hinter dem Logo (nicht Navigation)
    ======================================================= */
 
+.brand-logo {
+  position: relative;
+  z-index: 3;
+}
+
+.brand-logo::before {
+  content: "";
+  position: absolute;
+  inset: -10px -18px -10px -18px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px) saturate(130%);
+  border-radius: 14px;
+  z-index: -1;
+}
+
+/* =======================================================
+   FINAL: Panorama-Header (3 Bilder, keine Lücken, kompakt)
+   ======================================================= */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  min-height: 200px;
+}
+@media (min-width: 768px)  { .header { min-height: 250px; } }
+@media (min-width: 1024px) { .header { min-height: 300px; } }
+
+:root {
+  --img-width: 32%;
+  --img-opacity: 0.58;
+
+  --p1x: 0%;
+  --p2x: 34%;
+  --p3x: 66%;
+
+  --p1y: 35%;
+  --p2y: 45%;
+  --p3y: 38%;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
+  opacity: var(--img-opacity);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Spotlight hinter dem Logo */
 .brand-logo {
   position: relative;
   z-index: 3;
