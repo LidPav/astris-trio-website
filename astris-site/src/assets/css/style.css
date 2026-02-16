@@ -881,3 +881,41 @@ h2{
 #form-status { margin-top:.5rem; }
 #form-status.success { color: #0a7b34; }
 #form-status.error { color: #b00020; }
+
+/* === Panorama Header Background (Trio) === */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  background: #000; /* dunkle Basis, wirkt edel */
+}
+
+/* Hintergrund mit 3 überlappenden Bildern */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("/assets/img/25.jpg") left/40% auto no-repeat,
+    url("/assets/img/27.jpg") center/40% auto no-repeat,
+    url("/assets/img/32.jpg") right/40% auto no-repeat;
+  
+  opacity: 0.55; /* sichtbares, aber dezentes Trio */
+  z-index: 0;
+
+  /* Bonus: sanfter Fade nach unten */
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+/* Logo + Navigation bleiben über dem Hintergrund */
+.header__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: leichter Hintergrund für Lesbarkeit */
+.header__inner {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
