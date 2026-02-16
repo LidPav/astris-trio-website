@@ -919,7 +919,7 @@ h2{
   height: 100%;
   object-fit: cover;     /* bleibt */
   opacity: 0.70;         /* etwas kräftiger */
-  transform: scale(0.95);   /* <- rauszoomen statt reinzoomen */
+  transform: scale(1.0);   /* <- rauszoomen statt reinzoomen */
 }
 
 /* Zuschnitt pro Bild */
