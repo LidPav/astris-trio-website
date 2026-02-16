@@ -15,18 +15,21 @@ description: Booking & Kontakt
     <p class="small">
       E‑Mail:
       <a
-        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,%0D%0A' | urlencode }}"
+        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,' | urlencode }}"
       >
         {{ site.email }}
       </a>
     </p>
   </div>
 
-  <!-- Karte 2: Kontaktformular (Formspree; Action-URL gleich ersetzen) -->
+  <!-- Karte 2: Kontaktformular (Formspree) -->
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
-    <form class="form" action="https://formspree.io/f/meelkjon" method="POST">
-      <!-- Honeypot gegen Spam -->
+    <form class="form" action="https://formspree.io/f/meelkjon" method="POST" accept-charset="UTF-8">
+      <!-- Zeitstempel (für Zeit-basierte Erkennung) -->
+      <input type="hidden" id="form_start_time" name="form_start_time" value="">
+
+      <!-- Honeypot gegen Spam (unsichtbar für Menschen) -->
       <p class="visually-hidden" aria-hidden="true">
         <label for="website">Website (leer lassen)</label>
         <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
@@ -39,7 +42,7 @@ description: Booking & Kontakt
 
       <div class="form-row">
         <label for="email">E‑Mail<span aria-hidden="true">*</span></label>
-        <input id="email" name="_replyto" type="email" required autocomplete="email" placeholder="name@example.com" aria-required="true" />
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" aria-required="true" />
       </div>
 
       <div class="form-row">
@@ -67,4 +70,45 @@ description: Booking & Kontakt
     </form>
   </div>
 
-</div>
+</div> <!-- /grid -->
+
+<script>
+// Zeitstempel setzen, wenn die Seite geladen ist
+window.addEventListener("DOMContentLoaded", function () {
+  var startField = document.getElementById("form_start_time");
+  if (startField) {
+    startField.value = Date.now(); // Startzeit speichern
+  }
+});
+
+// Zeit-basierte Erkennung + Honeypot vor dem Absenden
+document.addEventListener("submit", function (e) {
+  var form = e.target;
+  if (!form.matches("form")) return;
+
+  // Honeypot prüfen
+  var honeypot = form.querySelector("input[name='website']");
+  if (honeypot && honeypot.value) {
+    e.preventDefault();
+    console.warn("Spam blockiert (Honeypot).");
+    return false;
+  }
+
+  // Zeitprüfung
+  var startField = form.querySelector("#form_start_time");
+  if (startField && startField.value) {
+    var now = Date.now();
+    var diff = now - parseInt(startField.value, 10);
+
+    // Zu schnell? (< 3 Sekunden)
+    if (diff < 3000) {
+      e.preventDefault();
+      console.warn("Spam blockiert (zu schnell ausgefüllt: " + diff + " ms)");
+      // Optional: Fake-Erfolg oder Redirect:
+      // alert("Danke! Ihre Nachricht wurde gesendet.");
+      // window.location.href = "/danke/";
+      return false;
+    }
+  }
+}, true);
+</script>
