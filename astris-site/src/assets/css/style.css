@@ -882,188 +882,78 @@ h2{
 #form-status.success { color: #0a7b34; }
 #form-status.error { color: #b00020; }
 
-/* === Panorama Header Background (Trio) === */
-
-.header {
-  position: relative;
-  overflow: hidden;
-  background: #000; /* dunkle Basis, wirkt edel */
-}
-
-/* Hintergrund mit 3 überlappenden Bildern */
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    url("/assets/img/25.jpg") left/40% auto no-repeat,
-    url("/assets/img/27.jpg") center/40% auto no-repeat,
-    url("/assets/img/32.jpg") right/40% auto no-repeat;
-  
-  opacity: 0.55; /* sichtbares, aber dezentes Trio */
-  z-index: 0;
-
-  /* Bonus: sanfter Fade nach unten */
-  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-          mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-}
-
-/* Logo + Navigation bleiben über dem Hintergrund */
-.header__inner {
-  position: relative;
-  z-index: 2;
-}
-
-/* Optional: leichter Hintergrund für Lesbarkeit */
-.header__inner {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-/* === Panorama Header Background (3 images) — kompakter, 10–15% kleiner, optimierte Bild-Ausschnitte === */
+/* =======================================================
+   FINAL: Panorama-Header (3 Bilder, keine Lücken, kompakt)
+   ======================================================= */
 
 .header {
   position: relative;
   overflow: hidden;
   background: #000;
-  /* Höhe etwas schmaler */
-  min-height: 220px;               /* mobile */
+  min-height: 200px; /* kompakter Header */
 }
-@media (min-width: 768px)  { .header { min-height: 300px; } }   /* tablet  */
-@media (min-width: 1024px) { .header { min-height: 360px; } }   /* desktop */
+@media (min-width: 768px)  { .header { min-height: 250px; } }
+@media (min-width: 1024px) { .header { min-height: 300px; } }
 
-/* Feintuning-Variablen:
-   - --img-width: Bildbreite je Layer (kleiner => wirkt "runterskaliert")
-   - --p* y: vertikale Fokusposition (0%=oben, 100%=unten)
-   - --p* x: horizontale Fokusposition in % (0%=links, 50%=Mitte, 100%=rechts)
-*/
 :root {
-  /* Skalierung ~10–15% kleiner als vorher (zuvor ~38–40%) */
-  --img-width: 28%;
+  --img-width: 32%;   /* drei Bilder → sicher ohne Lücken */
+  --img-opacity: 0.58;
 
-  /* Vertikale Fokuspunkte (Ausschnitt so, dass Köpfe/Instrumente im Blick bleiben) */
-  --p1y: 32%;   /* linkes Bild (25.jpg) minimal höher als Mitte */
-  --p2y: 46%;   /* mittleres Bild (27.jpg) etwas unter Mitte */
-  --p3y: 36%;   /* rechtes Bild (32.jpg) leicht über Mitte */
+  /* Vertikal */
+  --p1y: 35%;
+  --p2y: 45%;
+  --p3y: 38%;
 
-  /* Horizontale Fokusverschiebung:
-     - Mitte nach links schieben, um mehr vom linken Bereich zu zeigen
-     - Rechts ebenfalls nach links schieben, damit der linke Rand stärker sichtbar ist
-  */
-  --p1x: 0%;    /* linkes Bild bleibt links verankert */
-  --p2x: 38%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
-  --p3x: 32%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
-
-  /* Bildhelligkeit (bei Bedarf anpassen, 0.45–0.62 sind üblich) */
-  --img-opacity: 0.62;
+  /* Horizontal – stabile, lückenlose Verteilung */
+  --p1x: 0%;
+  --p2x: 34%;   /* deutlich nach links geschoben */
+  --p3x: 66%;   /* rechts fixiert */
 }
 
 .header::before {
   content: "";
   position: absolute;
   inset: 0;
+
+  /* Bilder in fester Reihenfolge:
+     1 = links, 2 = mitte, 3 = rechts
+     → KEINE schwarzen Lücken mehr
+  */
   background:
     url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
     url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
     url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
-  opacity: var(--img-opacity);
-  z-index: 0;
 
-  /* Sanfter Fade nach unten (Bonus) */
+  opacity: var(--img-opacity);
+
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
           mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
-/* Header-Content über dem Hintergrund, mit "Glass"-Hintergrund für Lesbarkeit */
-.header__inner {
-  position: relative;
-  z-index: 2;
-  padding-top: 1.5rem;   /* bei schmalerem Header etwas kompakter */
-  padding-bottom: 1.5rem;
-}
+/* =======================================================
+   Helles Spotlight NUR hinter dem Logo (nicht Navigation)
+   ======================================================= */
 
-/* dezente „Glas“-Fläche hinter Logo + Navigation */
-.header__inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.25);
-  backdrop-filter: blur(6px) saturate(120%);
-  border-radius: 12px;
-  z-index: -1;
-}
-
-/* Navigation weiterhin gut lesbar */
-.nav__link {
-  color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.6);
-  padding: .25rem .5rem;
-  border-radius: 4px;
-}
-.nav__link:hover {
-  background: rgba(255,255,255,.08);
-}
-
-/* Mobile: etwas breiter für harmonische Überdeckung */
-@media (max-width: 480px) {
-  :root { --img-width: 46%; } /* vorher 50%, jetzt dezenter, aber noch bildstark */
-}
-
-/* ============================================
-   Helles Spotlight NUR hinter dem Logo
-   ============================================ */
-
-.header__inner {
-  position: relative;
-}
-
-/* Heller Bereich nur hinter dem Logo selbst */
 .brand-logo {
   position: relative;
-  z-index: 2; /* Logo über Overlay */
+  z-index: 3;
 }
 
 .brand-logo::before {
   content: "";
   position: absolute;
-  inset: -12px -20px -12px -20px; /* größerer Bereich um Logo herum */
-  background: rgba(255, 255, 255, 0.85); /* Helles, fast weißes Spotlight */
-  backdrop-filter: blur(8px) saturate(130%);
+  inset: -10px -18px -10px -18px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px) saturate(130%);
   border-radius: 14px;
-  z-index: -1; /* liegt hinter Logo */
+  z-index: -1;
 }
 
-/* Navigation NICHT aufhellen – bleibt wie bisher */
+/* Navigation bleibt weiß */
 .nav__link {
   color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  text-shadow: 0 1px 2px rgba(0,0,0,.65);
 }
 .nav__link:hover {
-  background: rgba(255,255,255,.08);
-}
-
-/* ============================================
-   Panorama-Header: rechtes Bild wieder sichtbar
-   ============================================ */
-
-:root {
-  --img-width: 33%;
-  --img-opacity: 0.58;
-
-  --p1x: 0%;
-  --p2x: 38%;
-  --p3x: 22%;   /* weiter nach links → Bild sichtbar */
-
-  --p1y: 32%;
-  --p2y: 46%;
-  --p3y: 35%;
-}
-
-.header::before {
-  background:
-    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
-    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
-    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
-
-  opacity: var(--img-opacity);
+  background: rgba(255,255,255,0.08);
 }
