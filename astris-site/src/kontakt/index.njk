@@ -15,14 +15,14 @@ description: Booking & Kontakt
     <p class="small">
       E‑Mail:
       <a
-        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,' | urlencode }}"
+        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,%0D%0A' | urlencode }}"
       >
         {{ site.email }}
       </a>
     </p>
   </div>
 
-  <!-- Karte 2: Kontaktformular (Formspree-Beispiel; ersetze die Action-URL) -->
+  <!-- Karte 2: Kontaktformular (Formspree; Action-URL gleich ersetzen) -->
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
     <form class="form" action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
@@ -52,10 +52,10 @@ description: Booking & Kontakt
         <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht" aria-required="true"></textarea>
       </div>
 
-      <!-- Meta -->
+      <!-- Meta für Formspree -->
       <input type="hidden" name="_subject" value="Kontakt Astris Trio" />
       <input type="hidden" name="_language" value="de" />
-      <!-- Optional: Erfolg-Redirect -->
+      <!-- Optional: Redirect nach Erfolg -->
       <!-- <input type="hidden" name="_next" value="/danke/" /> -->
 
       <button type="submit" class="btn">Nachricht senden</button>
