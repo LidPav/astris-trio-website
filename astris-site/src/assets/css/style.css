@@ -919,9 +919,8 @@ h2{
   height: 100%;
   object-fit: cover;     /* bleibt */
   opacity: 0.70;         /* etwas kräftiger */
-  transform: scale(1.08);/* leicht reinzoomen -> mehr Präsenz */
+  transform: scale(0.95);   /* <- rauszoomen statt reinzoomen */
 }
-
 
 /* Zuschnitt pro Bild */
 .header-photos img:nth-child(1){ object-position: 15% 40%; }
