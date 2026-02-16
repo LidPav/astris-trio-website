@@ -14,22 +14,22 @@ description: Booking & Kontakt
     <h2 class="h2">Kontakt</h2>
     <p class="small">
       E‑Mail:
-      <a
-        href="mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,' | urlencode }}"
-      >
+      mailto:{{ site.email | replace(
         {{ site.email }}
       </a>
     </p>
   </div>
 
-  <!-- Karte 2: Kontaktformular (Formspree) -->
+  <!-- Karte 2: Kontaktformular (AJAX + Formspree) -->
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
-    <form class="form" action="https://formspree.io/f/meelkjon" method="POST" accept-charset="UTF-8">
-      <!-- Zeitstempel (für Zeit-basierte Erkennung) -->
+
+    https://formspree.io/f/meelkjon" data-ajax="true" accept-charset="UTF-8">
+
+      <!-- Zeit-basierte Spam-Erkennung -->
       <input type="hidden" id="form_start_time" name="form_start_time" value="">
 
-      <!-- Honeypot gegen Spam (unsichtbar für Menschen) -->
+      <!-- Honeypot (unsichtbar für echte Nutzer) -->
       <p class="visually-hidden" aria-hidden="true">
         <label for="website">Website (leer lassen)</label>
         <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
@@ -55,60 +55,99 @@ description: Booking & Kontakt
         <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht" aria-required="true"></textarea>
       </div>
 
-      <!-- Meta für Formspree -->
-      <input type="hidden" name="_subject" value="Kontakt Astris Trio" />
-      <input type="hidden" name="_language" value="de" />
-      <!-- Optional: Redirect nach Erfolg -->
-      <!-- <input type="hidden" name="_next" value="/danke/" /> -->
+      <!-- Formspree Meta -->
+      <input type="hidden" name="_subject" value="Kontakt Astris Trio">
+      <input type="hidden" name="_language" value="de">
+
+      <!-- Kein Redirect – Erfolgsmeldung bleibt auf Seite -->
+      <!-- <input type="hidden" name="_next" value="/danke/"> -->
 
       <button type="submit" class="btn">Nachricht senden</button>
+
+      <!-- Inline-Status für Erfolg/Fehler -->
+      <p id="form-status" class="small" role="status" aria-live="polite" style="margin-top:.5rem;"></p>
 
       <p class="form-privacy small">
         Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Beantwortung Ihrer Anfrage verarbeiten.
         Details in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.
       </p>
+
     </form>
   </div>
 
 </div> <!-- /grid -->
 
+
+<!-- JAVASCRIPT: AJAX + Honeypot + Zeitbasierte Erkennung -->
 <script>
 // Zeitstempel setzen, wenn die Seite geladen ist
 window.addEventListener("DOMContentLoaded", function () {
-  var startField = document.getElementById("form_start_time");
-  if (startField) {
-    startField.value = Date.now(); // Startzeit speichern
-  }
+  const startField = document.getElementById("form_start_time");
+  if (startField) startField.value = Date.now();
 });
 
-// Zeit-basierte Erkennung + Honeypot vor dem Absenden
-document.addEventListener("submit", function (e) {
-  var form = e.target;
-  if (!form.matches("form")) return;
+// AJAX-Submit + Spam-Prüfungen
+document.addEventListener("submit", async function (e) {
+  const form = e.target;
+  if (!form.matches('form[data-ajax="true"]')) return; // Nur dieses Formular
 
-  // Honeypot prüfen
-  var honeypot = form.querySelector("input[name='website']");
+  // Browser-Validierung
+  if (!form.checkValidity()) return;
+
+  // Honeypot
+  const honeypot = form.querySelector('input[name="website"]');
   if (honeypot && honeypot.value) {
     e.preventDefault();
     console.warn("Spam blockiert (Honeypot).");
     return false;
   }
 
-  // Zeitprüfung
-  var startField = form.querySelector("#form_start_time");
+  // Zeitprüfung: <3 Sekunden → Bot
+  const startField = form.querySelector("#form_start_time");
   if (startField && startField.value) {
-    var now = Date.now();
-    var diff = now - parseInt(startField.value, 10);
-
-    // Zu schnell? (< 3 Sekunden)
+    const diff = Date.now() - parseInt(startField.value, 10);
     if (diff < 3000) {
       e.preventDefault();
-      console.warn("Spam blockiert (zu schnell ausgefüllt: " + diff + " ms)");
-      // Optional: Fake-Erfolg oder Redirect:
-      // alert("Danke! Ihre Nachricht wurde gesendet.");
-      // window.location.href = "/danke/";
+      console.warn("Spam blockiert (zu schnell: " + diff + " ms)");
       return false;
     }
+  }
+
+  // Eigentliches Absenden per AJAX
+  e.preventDefault();
+
+  const statusEl = document.getElementById("form-status");
+  statusEl.textContent = "Senden …";
+  statusEl.style.color = "#555";
+
+  try {
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      statusEl.style.color = "green";
+      statusEl.textContent = "Danke! Ihre Nachricht wurde erfolgreich gesendet.";
+      form.reset();
+
+      // neuen Startwert setzen, damit erneutes Absenden nicht geblockt wird
+      document.getElementById("form_start_time").value = Date.now();
+
+    } else {
+      statusEl.style.color = "red";
+      statusEl.textContent = "Fehler beim Senden. Bitte später erneut versuchen.";
+    }
+
+  } catch (err) {
+    statusEl.style.color = "red";
+    statusEl.textContent = "Netzwerkfehler. Bitte später erneut versuchen.";
   }
 }, true);
 </script>
