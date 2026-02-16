@@ -892,8 +892,17 @@ h2{
   z-index: 50;
   overflow: hidden;
   background: #000;              /* wichtig: nicht weiß */
+  min-height: 240px;
   border-bottom: 1.5px solid #D4AF37;
 }
+
+@media (min-width: 768px){
+  .header{ min-height: 300px; }
+}
+@media (min-width: 1100px){
+  .header{ min-height: 340px; }
+}
+
 
 /* Fotos hinter dem Menü */
 .header-photos{
