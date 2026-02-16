@@ -927,7 +927,7 @@ h2{
   overflow: hidden;
   background: #000;
   /* Höhe etwas schmaler */
-  min-height: 240px;               /* mobile */
+  min-height: 220px;               /* mobile */
 }
 @media (min-width: 768px)  { .header { min-height: 300px; } }   /* tablet  */
 @media (min-width: 1024px) { .header { min-height: 360px; } }   /* desktop */
@@ -939,7 +939,7 @@ h2{
 */
 :root {
   /* Skalierung ~10–15% kleiner als vorher (zuvor ~38–40%) */
-  --img-width: 30%;
+  --img-width: 28%;
 
   /* Vertikale Fokuspunkte (Ausschnitt so, dass Köpfe/Instrumente im Blick bleiben) */
   --p1y: 32%;   /* linkes Bild (25.jpg) minimal höher als Mitte */
@@ -951,8 +951,8 @@ h2{
      - Rechts ebenfalls nach links schieben, damit der linke Rand stärker sichtbar ist
   */
   --p1x: 0%;    /* linkes Bild bleibt links verankert */
-  --p2x: 40%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
-  --p3x: 35%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
+  --p2x: 38%;   /* Mitte: statt 50% -> 42% zeigt mehr linken Bildanteil */
+  --p3x: 32%;   /* Rechts: deutlich nach links geschoben, um den linken Bereich ins Blickfeld zu holen */
 
   /* Bildhelligkeit (bei Bedarf anpassen, 0.45–0.62 sind üblich) */
   --img-opacity: 0.62;
