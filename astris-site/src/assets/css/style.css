@@ -80,7 +80,7 @@ a{
 a:hover{
   text-decoration-color: rgba(167,184,255,.9);
 }
-.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+.wrap{max-:var(--max); margin:0 auto; padding:0 20px}
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:16px; top:16px; background:var(--panel); padding:10px 12px; border-radius:12px; border:1px solid var(--line); z-index:99}
 
@@ -143,7 +143,7 @@ p{margin:.7em 0}
 
 .grid{display:grid; gap:16px}
 .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width: 860px){.grid-2{grid-template-columns:1fr}}
+@media (max-: 860px){.grid-2{grid-template-columns:1fr}}
 
 .btns{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 6px}
 .btn{
@@ -170,7 +170,7 @@ p{margin:.7em 0}
 }
 
 .hero-img{
-  width:100%; height:auto;
+  :100%; height:auto;
   border-radius:var(--radius);
   border:1px solid var(--line);
   box-shadow:var(--shadow);
@@ -178,7 +178,7 @@ p{margin:.7em 0}
 }
 
 .hero-image{
-  max-width: 100%;
+  max-: 100%;
   height: auto;
   display: block;
   border-radius: 16px;
@@ -187,9 +187,9 @@ p{margin:.7em 0}
 }
 
 .musiker-grid article img.musiker-card__image{
-  width: 260px;
+  : 260px;
   height: 260px;
-  max-width: none;
+  max-: none;
   object-fit: cover;
   border-radius: 14px;
   display: block;
@@ -204,13 +204,13 @@ p{margin:.7em 0}
 .musiker-card__content{
   flex: 1;
 }
-@media (max-width: 700px){
+@media (max-: 700px){
   .musiker-grid article{
     flex-direction: column;
   }
 
   .musiker-grid article img.musiker-card__image{
-    width: 220px;
+    : 220px;
     height: 220px;
   }
 }
@@ -243,7 +243,7 @@ p{margin:.7em 0}
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  : 100%;
   height: 100%;
 }
 
@@ -279,27 +279,27 @@ p{margin:.7em 0}
   display: flex;
   justify-content: center;
 }
-.hero-image{ max-width: 100%; }
+.hero-image{ max-: 100%; }
 
 .hero-inner{
   grid-template-columns: minmax(0, 2.5fr) minmax(0, 3fr);
 }
 
 .hero-image{
-  max-width: 100%;
+  max-: 100%;
   height: auto;
   display: block;
   border-radius: 16px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
-@media (max-width: 860px){
+@media (max-: 860px){
   .hero-inner{
     grid-template-columns: 1fr;
   }
 
   .hero-image{
-    max-width: 100%;
+    max-: 100%;
     margin-top: 0.5rem;
   }
 
@@ -344,16 +344,16 @@ p{margin:.7em 0}
 
 .brand-logo img{
   height: 44px;
-  width: auto;
+  : auto;
 }
 
-@media (min-width: 1100px){
+@media (min-: 1100px){
   .brand-logo img{
     height: 48px;
   }
 }
 
-@media (max-width: 520px){
+@media (max-: 520px){
   .header__inner{
     padding: 18px 0;
   }
@@ -927,7 +927,7 @@ h2{
   overflow: hidden;
   background: #000;
   /* Höhe etwas schmaler */
-  min-height: 220px;               /* mobile */
+  min-height: 180px;               /* mobile */
 }
 @media (min-width: 768px)  { .header { min-height: 300px; } }   /* tablet  */
 @media (min-width: 1024px) { .header { min-height: 360px; } }   /* desktop */
@@ -939,7 +939,7 @@ h2{
 */
 :root {
   /* Skalierung ~10–15% kleiner als vorher (zuvor ~38–40%) */
-  --img-width: 28%;
+  --img-width: 25%;
 
   /* Vertikale Fokuspunkte (Ausschnitt so, dass Köpfe/Instrumente im Blick bleiben) */
   --p1y: 32%;   /* linkes Bild (25.jpg) minimal höher als Mitte */
