@@ -894,9 +894,9 @@ h2{
   --p2x: 25%;    /* Mitte deutlich weiter nach links */
   --p3x: 54%;    /* rechte Position nach links ziehen */
 
-  --p1y: 35%;    /* vertical positions */
-  --p2y: 45%;
-  --p3y: 38%;
+  --p1y: 38%;
+  --p2y: 42%;
+  --p3y: 40%;
 }
 
 .header {
