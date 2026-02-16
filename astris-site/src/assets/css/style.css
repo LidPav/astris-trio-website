@@ -1008,3 +1008,62 @@ h2{
 @media (max-width: 480px) {
   :root { --img-width: 46%; } /* vorher 50%, jetzt dezenter, aber noch bildstark */
 }
+
+/* ============================================
+   Helles Spotlight NUR hinter dem Logo
+   ============================================ */
+
+.header__inner {
+  position: relative;
+}
+
+/* Heller Bereich nur hinter dem Logo selbst */
+.brand-logo {
+  position: relative;
+  z-index: 2; /* Logo über Overlay */
+}
+
+.brand-logo::before {
+  content: "";
+  position: absolute;
+  inset: -12px -20px -12px -20px; /* größerer Bereich um Logo herum */
+  background: rgba(255, 255, 255, 0.85); /* Helles, fast weißes Spotlight */
+  backdrop-filter: blur(8px) saturate(130%);
+  border-radius: 14px;
+  z-index: -1; /* liegt hinter Logo */
+}
+
+/* Navigation NICHT aufhellen – bleibt wie bisher */
+.nav__link {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+.nav__link:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* ============================================
+   Panorama-Header: rechtes Bild wieder sichtbar
+   ============================================ */
+
+:root {
+  --img-width: 33%;
+  --img-opacity: 0.58;
+
+  --p1x: 0%;
+  --p2x: 38%;
+  --p3x: 22%;   /* weiter nach links → Bild sichtbar */
+
+  --p1y: 32%;
+  --p2y: 46%;
+  --p3y: 35%;
+}
+
+.header::before {
+  background:
+    url("/assets/img/25.jpg") var(--p1x) var(--p1y) / var(--img-width) auto no-repeat,
+    url("/assets/img/27.jpg") var(--p2x) var(--p2y) / var(--img-width) auto no-repeat,
+    url("/assets/img/32.jpg") var(--p3x) var(--p3y) / var(--img-width) auto no-repeat;
+
+  opacity: var(--img-opacity);
+}
