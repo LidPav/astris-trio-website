@@ -13,8 +13,8 @@ description: Booking & Kontakt
   <div class="card">
     <h2 class="h2">Kontakt</h2>
     <p class="small">
-      E‑Mail:
-      mailto:{{ site.email | replace('@', '&#64;') | replace('.', '&#46;') }}?subject={{ 'Anfrage Astris Trio' | urlencode }}&amp;body={{ 'Hallo,\n\nich habe eine Anfrage.' | urlencode }}">
+      E-Mail:
+      <a href="mailto:{{ site.email }}">
         {{ site.email }}
       </a>
     </p>
@@ -24,43 +24,39 @@ description: Booking & Kontakt
   <div class="card">
     <h2 class="h2">Kontaktformular</h2>
 
-    https://formspree.io/f/meelkjon" data-ajax="true" accept-charset="UTF-8">
+    <form class="form" action="https://formspree.io/f/meelkjon" method="POST" data-ajax="true" accept-charset="UTF-8">
 
       <!-- Zeitbasierte Spam-Erkennung -->
       <input type="hidden" id="form_start_time" name="form_start_time" value="">
 
-      <!-- Honeypot-Feld -->
+      <!-- Honeypot (unsichtbar) -->
       <p class="visually-hidden" aria-hidden="true">
         <label for="website">Website (leer lassen)</label>
         <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
       </p>
 
       <div class="form-row">
-        <label for="name">Name<span aria-hidden="true">*</span></label>
-        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Ihr Name" aria-required="true" />
+        <label for="name">Name*</label>
+        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Ihr Name">
       </div>
 
       <div class="form-row">
-        <label for="email">E‑Mail<span aria-hidden="true">*</span></label>
-        <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" aria-required="true" />
+        <label for="email">E-Mail*</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com">
       </div>
 
       <div class="form-row">
         <label for="subject">Betreff</label>
-        <input id="subject" name="subject" type="text" placeholder="Betreff (optional)" />
+        <input id="subject" name="subject" type="text" placeholder="Betreff (optional)">
       </div>
 
       <div class="form-row">
-        <label for="message">Nachricht<span aria-hidden="true">*</span></label>
-        <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht" aria-required="true"></textarea>
+        <label for="message">Nachricht*</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht"></textarea>
       </div>
-
-      <input type="hidden" name="_subject" value="Kontakt Astris Trio" />
-      <input type="hidden" name="_language" value="de" />
 
       <button type="submit" class="btn">Nachricht senden</button>
 
-      <!-- Inline-Status -->
       <p id="form-status" class="small" role="status" aria-live="polite" style="margin-top:.5rem;"></p>
 
       <p class="form-privacy small">
@@ -69,58 +65,49 @@ description: Booking & Kontakt
       </p>
 
     </form>
+
   </div>
+</div>
 
-</div> <!-- /grid -->
-
-
-<!-- JAVASCRIPT: AJAX + Honeypot + Zeitprüfung -->
 <script>
-// Zeitstempel setzen, wenn Seite geladen ist
-window.addEventListener("DOMContentLoaded", function () {
-  const startField = document.getElementById("form_start_time");
-  if (startField) startField.value = Date.now();
+// Zeitstempel setzen
+window.addEventListener("DOMContentLoaded", () => {
+  const f = document.getElementById("form_start_time");
+  if (f) f.value = Date.now();
 });
 
 // AJAX + Spam-Checks
-document.addEventListener("submit", async function (e) {
+document.addEventListener("submit", async (e) => {
   const form = e.target;
-
   if (!form.matches('form[data-ajax="true"]')) return;
-
-  if (!form.checkValidity()) return;
 
   e.preventDefault();
 
-  const statusEl = document.getElementById("form-status");
+  const status = document.getElementById("form-status");
 
   // Honeypot
-  const honeypot = form.querySelector('input[name="website"]');
-  if (honeypot && honeypot.value) {
-    statusEl.style.color = "red";
-    statusEl.textContent = "Spam erkannt.";
-    return false;
+  const hp = form.querySelector('input[name="website"]');
+  if (hp && hp.value.trim() !== "") {
+    status.style.color = "red";
+    status.textContent = "Spam blockiert.";
+    return;
   }
 
-  // Zeitprüfung
-  const startField = form.querySelector("#form_start_time");
-  if (startField && startField.value) {
-    const diff = Date.now() - parseInt(startField.value, 10);
-    if (diff < 3000) {
-      statusEl.style.color = "red";
-      statusEl.textContent = "Verdächtig schnelles Absenden blockiert.";
-      return false;
-    }
+  // Zeitcheck
+  const t = form.querySelector("#form_start_time");
+  const diff = Date.now() - parseInt(t.value, 10);
+  if (diff < 3000) {
+    status.style.color = "red";
+    status.textContent = "Verdächtig schnelles Absenden blockiert.";
+    return;
   }
 
-  statusEl.style.color = "#555";
-  statusEl.textContent = "Senden …";
+  status.style.color = "#555";
+  status.textContent = "Senden …";
 
-  // AJAX an Formspree
   try {
     const data = Object.fromEntries(new FormData(form).entries());
-
-    const response = await fetch(form.action, {
+    const res = await fetch(form.action, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -129,20 +116,18 @@ document.addEventListener("submit", async function (e) {
       body: JSON.stringify(data)
     });
 
-    if (response.ok) {
-      statusEl.style.color = "green";
-      statusEl.textContent = "Danke! Ihre Nachricht wurde erfolgreich gesendet.";
+    if (res.ok) {
+      status.style.color = "green";
+      status.textContent = "Danke! Ihre Nachricht wurde gesendet.";
       form.reset();
-      startField.value = Date.now();
+      t.value = Date.now();
     } else {
-      statusEl.style.color = "red";
-      statusEl.textContent = "Fehler beim Senden. Bitte später erneut versuchen.";
+      status.style.color = "red";
+      status.textContent = "Fehler beim Senden.";
     }
-
-  } catch (err) {
-    statusEl.style.color = "red";
-    statusEl.textContent = "Netzwerkfehler. Bitte später erneut versuchen.";
+  } catch (_) {
+    status.style.color = "red";
+    status.textContent = "Netzwerkfehler.";
   }
-
-}, true);
+});
 </script>
