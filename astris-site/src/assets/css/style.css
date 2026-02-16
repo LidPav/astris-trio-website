@@ -862,3 +862,18 @@ h2{
   border-radius: 18px;
   overflow: hidden;
 }
+
+.form .form-row { margin-bottom: 1rem; }
+.form label { display: block; font-weight: 600; margin-bottom: .25rem; }
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+  width: 100%;
+  max-width: 36rem;
+  padding: .6rem .75rem;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: .375rem;
+  background: #fff;
+}
+.form .btn { margin-top: .5rem; }
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
