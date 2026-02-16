@@ -924,7 +924,7 @@ h2{
 
 /* Zuschnitt pro Bild */
 .header-photos img:nth-child(1){ object-position: 15% 40%; }
-.header-photos img:nth-child(2){ object-position: 40% 42%; }
+.header-photos img:nth-child(2){ object-position: 40% 50%; }
 .header-photos img:nth-child(3){
   object-position: 50% 70%;
   transform: scale(1.0);   /* rechtes Bild noch etwas mehr rauszoomen */
