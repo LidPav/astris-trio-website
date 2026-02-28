@@ -1116,3 +1116,6 @@ h2{
   color: #444;
   font-weight: 500;
 }
+.programme__item--note {
+  font-style: italic;
+}
