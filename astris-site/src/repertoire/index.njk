@@ -24,7 +24,12 @@ description: Konzertprogramme des Astris Trio (Klassik bis Moderne)
 
 <section id="programme" class="programme">
   {% for p in programmes %}
-    <article class="programme__item" id="{{ p.id }}">
+
+    {% if not p.works %}
+      <article class="programme__item programme__item--note" id="{{ p.id }}">
+    {% else %}
+      <article class="programme__item" id="{{ p.id }}">
+    {% endif %}
       
       <h3 class="programme__title">{{ p.title }}</h3>
 
