@@ -1,7 +1,7 @@
 ---
 layout: layout.njk
-title: Repertoire
-description: Repertoire des Astris Trio
+title: Programme
+description: Konzertprogramme des Astris Trio (Klassik bis Moderne)
 ---
 
 <section class="editorial">
@@ -22,35 +22,28 @@ description: Repertoire des Astris Trio
       {# Reihenfolge der Epochen bewusst festgelegt #}
       {% set epochOrder = ['Klassik', 'Romantik', 'Moderne', 'Zeitgenössisch'] %}
 
-      <section id="repertoire" class="repertoire">
-        {% for epoch in epochOrder %}
+<section id="programme" class="programme">
+  {% for p in programmes %}
+    <article class="programme__item" id="{{ p.id }}">
+      <h3 class="programme__title">{{ p.title }}</h3>
 
-          {# Komponisten herausfiltern, die zu dieser Epoche gehören.
-             Hinweis: Object.keys() Reihenfolge folgt der JSON-Einfügereihenfolge. #}
-          {% set composersInEpoch = [] %}
-          {% for composer, data in repertoireByComposer %}
-            {% if data.epoch == epoch %}
-              {% set composersInEpoch = composersInEpoch.concat([{ 'name': composer, 'works': data.works }]) %}
-            {% endif %}
-          {% endfor %}
-
-          {# Nur Abschnitt ausgeben, wenn es Inhalte gibt #}
-          {% if composersInEpoch.length %}
-            <h3 class="repertoire__epoch">{{ epoch }}</h3>
-
-            {% for c in composersInEpoch %}
-              <h4>{{ c.name }}</h4>
-              <ul>
-                {% for work in c.works %}
-                  <li>{{ work }}</li>
-                {% endfor %}
-              </ul>
-            {% endfor %}
-
-          {% endif %}
-
+      <ul class="programme__works">
+        {% for w in p.works %}
+          <li>{{ w }}</li>
         {% endfor %}
-      </section>
+      </ul>
+
+      {% if p.blurb %}
+        <p class="programme__blurb">{{ p.blurb }}</p>
+      {% endif %}
+
+      <p class="programme__meta muted">
+        {% if p.duration %}<strong>Dauer:</strong> {{ p.duration }}{% endif %}
+        {% if p.idealFor %}<br>{{ p.idealFor }}{% endif %}
+      </p>
+    </article>
+  {% endfor %}
+</section>
 
     </div>
 
@@ -58,8 +51,14 @@ description: Repertoire des Astris Trio
       <div class="aside-card">
         <h3>Programme</h3>
         <p class="muted">
-          Gerne stellen wir thematische Programme zusammen
-          (z.&nbsp;B. Schubert–Beethoven, Wiener Klassik, Moderne).
+          <div class="aside-card">
+  <h3>Programme</h3>
+  <ul class="muted">
+    {% for p in programmes %}
+      <li><a href="#{{ p.id }}">{{ p.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
         </p>
       </div>
 
