@@ -1047,4 +1047,8 @@ h2{
   .nav__link { font-size: 0.9rem; padding: 6px 6px; }
   .brand-logo img { height: 30px; }
 }
-
+.programme__title {
+  color: #2B4EA2;
+  margin-top: 2rem;
+  font-weight: 600;
+}
