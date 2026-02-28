@@ -1047,16 +1047,72 @@ h2{
   .nav__link { font-size: 0.9rem; padding: 6px 6px; }
   .brand-logo img { height: 30px; }
 }
-.programme__title {
-  color: #2B4EA2;
-  margin-top: 2rem;
-  font-weight: 600;
+
+/* ===============================
+   PROGRAMME PAGE – Refined Style
+   =============================== */
+
+.programme__item {
+  margin-bottom: 3rem;
 }
+
+.programme__item:not(:last-child) {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Programme Title */
+.programme__title {
+  color: #1e3a8a;          /* your blue */
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+}
+
+/* Works list (no bullets, elegant dash style) */
+.programme__works {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem 0;
+}
+
+.programme__works li {
+  margin-bottom: 0.25rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.programme__works li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+}
+
+/* Programme description */
+.programme__blurb {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: #333;
+  max-width: 48rem;
+}
+
+/* Meta info (duration, ideal for) */
+.programme__meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Special styling for "Weitere Programme" */
 .programme__item--note {
+  border-top: 1px solid #ddd;
+  padding-top: 2rem;
   margin-top: 3rem;
-  font-style: italic;
 }
 
 .programme__item--note .programme__title {
-  color: var(--text-color);   /* same as body text */
+  color: #444;
+  font-weight: 500;
 }
