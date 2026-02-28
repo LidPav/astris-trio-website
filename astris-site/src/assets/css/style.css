@@ -1052,3 +1052,7 @@ h2{
   margin-top: 2rem;
   font-weight: 600;
 }
+.programme__item--note {
+  margin-top: 3rem;
+  font-style: italic;
+}
