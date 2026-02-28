@@ -1056,3 +1056,7 @@ h2{
   margin-top: 3rem;
   font-style: italic;
 }
+
+.programme__item--note .programme__title {
+  color: var(--text-color);   /* same as body text */
+}
