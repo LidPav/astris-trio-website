@@ -25,22 +25,36 @@ description: Konzertprogramme des Astris Trio (Klassik bis Moderne)
 <section id="programme" class="programme">
   {% for p in programmes %}
     <article class="programme__item" id="{{ p.id }}">
+      
       <h3 class="programme__title">{{ p.title }}</h3>
 
-      <ul class="programme__works">
-        {% for w in p.works %}
-          <li>{{ w }}</li>
-        {% endfor %}
-      </ul>
-
-      {% if p.blurb %}
-        <p class="programme__blurb">{{ p.blurb }}</p>
+      {# Only render works if they exist and are not empty #}
+      {% if p.works and p.works.length %}
+        <ul class="programme__works">
+          {% for w in p.works %}
+            <li>{{ w }}</li>
+          {% endfor %}
+        </ul>
       {% endif %}
 
-      <p class="programme__meta muted">
-        {% if p.duration %}<strong>Dauer:</strong> {{ p.duration }}{% endif %}
-        {% if p.idealFor %}<br>{{ p.idealFor }}{% endif %}
-      </p>
+      {% if p.blurb %}
+        <p class="programme__blurb">
+          {{ p.blurb }}
+        </p>
+      {% endif %}
+
+      {# Only render meta info if duration or idealFor exist #}
+      {% if p.duration or p.idealFor %}
+        <p class="programme__meta muted">
+          {% if p.duration %}
+            <strong>Dauer:</strong> {{ p.duration }}
+          {% endif %}
+          {% if p.idealFor %}
+            <br>{{ p.idealFor }}
+          {% endif %}
+        </p>
+      {% endif %}
+
     </article>
   {% endfor %}
 </section>
