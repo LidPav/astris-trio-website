@@ -1,1 +1,73 @@
-
+[
+  {
+    "id": "wiener-klassik",
+    "title": "Wiener Klassik – Glanz, Witz und Dramatik",
+    "duration": "ca. 75–85 Minuten",
+    "idealFor": "Ideal für Kulturreihen, Bürgerhäuser und klassische Konzertformate.",
+    "works": [
+      "Joseph Haydn – Klaviertrio Nr. 39 G-Dur, Hob. XV:25",
+      "Wolfgang Amadeus Mozart – Klaviertrio B-Dur, KV 502",
+      "Ludwig van Beethoven – Klaviertrio D-Dur, op. 70 Nr. 1 „Geistertrio“"
+    ],
+    "blurb": "Ein Programm, das die Wiener Klassik in all ihren Facetten zeigt: Haydns humorvolle Eleganz, Mozarts kammermusikalische Feinheit und die dramatische Wucht von Beethovens „Geistertrio“ spannen einen Bogen von höfischem Charme bis zu symphonischer Ausdruckskraft."
+  },
+  {
+    "id": "beethoven-pur",
+    "title": "Beethoven pur – Charme und Monumentalität",
+    "duration": "ca. 70 Minuten",
+    "idealFor": "Optimal für Kammermusikzyklen und anspruchsvolle Konzertreihen.",
+    "works": [
+      "Ludwig van Beethoven – Klaviertrio B-Dur, op. 11 „Gassenhauertrio“",
+      "Ludwig van Beethoven – Klaviertrio B-Dur, op. 97 „Erzherzogtrio“"
+    ],
+    "blurb": "Das heitere, variationsreiche „Gassenhauertrio“ und das majestätische „Erzherzogtrio“ zeigen Beethoven als Meister der Vielfalt: von kammermusikalischer Leichtigkeit bis zu orchestraler Größe."
+  },
+  {
+    "id": "romantik-pur",
+    "title": "Romantik pur – Melodie, Gefühl und Farbenreichtum",
+    "duration": "ca. 80–85 Minuten",
+    "idealFor": "Ideal für ein breites Konzertpublikum.",
+    "works": [
+      "Robert Schumann – Klaviertrio Nr. 1 d-Moll, op. 63",
+      "Franz Schubert – Notturno Es-Dur, D 897",
+      "Antonín Dvořák – Klaviertrio Nr. 4 e-Moll, op. 90 „Dumky“"
+    ],
+    "blurb": "Leidenschaftliche Dramatik bei Schumann, Schuberts lyrische Innigkeit und Dvořáks folkloristische Feuerwerke formen ein intensiv emotionales romantisches Panorama – zugänglich und publikumsnah."
+  },
+  {
+    "id": "um-1914",
+    "title": "Um 1914 – Übergang von Spätromantik zur Moderne",
+    "duration": "ca. 90 Minuten",
+    "idealFor": "Perfekt für thematische Reihen und ein neugieriges, anspruchsvolles Publikum.",
+    "works": [
+      "Anton Arensky – Klaviertrio Nr. 1 d-Moll, op. 32",
+      "Erich Wolfgang Korngold – Klaviertrio D-Dur, op. 1",
+      "Maurice Ravel – Klaviertrio a-Moll (1914)"
+    ],
+    "blurb": "Ein spannender Blick auf die Jahre um 1900: Arenskys lyrischer Reichtum, Korngolds spätromantische Virtuosität und Ravels farbenreiche, impressionistische Modernität zeigen den musikalischen Wandel dieser Epoche auf eindrucksvolle Weise."
+  },
+  {
+    "id": "tradition-gegenwart",
+    "title": "Tradition & Gegenwart – Ausdruckskraft des 20. Jahrhunderts",
+    "duration": "ca. 70 Minuten",
+    "idealFor": "Ideal für Festivals, moderne Konzertreihen und breites Publikum.",
+    "works": [
+      "Dmitri Schostakowitsch – Klaviertrio Nr. 2 e-Moll, op. 67",
+      "Wolfgang Rihm – Fremde Szene III",
+      "Astor Piazzolla – Las Cuatro Estaciones Porteñas (arr. für Klaviertrio)"
+    ],
+    "blurb": "Von Schostakowitschs existenzieller Ausdrucksintensität über Rihms klangsinnliche Moderne bis zu Piazzollas rhythmischer Energie: Ein Programm voller Kontraste, Vitalität und emotionaler Tiefe."
+  },
+  {
+    "id": "romantik-im-dialog",
+    "title": "Romantik im Dialog – Schumann, Clara Schumann & Brahms",
+    "duration": "ca. 75–80 Minuten",
+    "idealFor": "Ideal für thematische Reihen und dramaturgisch anspruchsvolle Programme.",
+    "works": [
+      "Robert Schumann – Klaviertrio Nr. 1 d-Moll, op. 63",
+      "Clara Schumann – Klaviertrio g-Moll, op. 17",
+      "Johannes Brahms – Klaviertrio c-Moll, op. 101"
+    ],
+    "blurb": "Drei Trios wie drei Stimmen einer gemeinsamen Geschichte. Drei Komponisten, die durch persönliche und künstlerische Nähe verbunden sind: Robert Schumanns leidenschaftliche Dramatik, Clara Schumanns lyrische Feinheit und Brahms’ konzentrierte, dunkle Energie bilden ein tiefes romantisches Gesamtkonzept."
+  }
+]
