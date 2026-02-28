@@ -28,7 +28,7 @@
     "duration": "ca. 80–85 Minuten",
     "idealFor": "Ideal für ein breites Konzertpublikum.",
     "works": [
-      "Franz Schubert – Klaviertrio Es‑Dur, op. 100, D 929",
+      "Franz Schubert – Klaviertrio Es-Dur, op. 100, D 929",
       "Antonín Dvořák – Klaviertrio Nr. 4 e-Moll, op. 90 „Dumky“"
     ],
     "blurb": "Schuberts lyrische Innigkeit und Dvořáks folkloristische Feuerwerke formen ein intensiv emotionales romantisches Panorama – zugänglich und publikumsnah."
@@ -68,10 +68,10 @@
       "Johannes Brahms – Klaviertrio c-Moll, op. 101"
     ],
     "blurb": "Drei Trios wie drei Stimmen einer gemeinsamen Geschichte. Drei Komponisten, die durch persönliche und künstlerische Nähe verbunden sind: Robert Schumanns leidenschaftliche Dramatik, Clara Schumanns lyrische Feinheit und Brahms’ konzentrierte, dunkle Energie bilden ein tiefes romantisches Gesamtkonzept."
-  }
+  },
   {
-    "id": "Weiteres",
+    "id": "weiteres",
     "title": "Weitere Programme auf Anfrage",
     "blurb": "Weitere Programme – etwa mit Schuberts Notturno Es-Dur D 897, Camille Saint-Saëns Piano Trio Nr. 1 F-Dur Op. 18, Werken des 20. Jahrhunderts von Isang Yun, Ljubica Marić, Paul Schoenfield oder Zeitgenossen – gestalten wir gerne individuell nach Ihren Wünschen."
   }
-  ]
+]
