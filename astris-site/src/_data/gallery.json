@@ -1,0 +1,42 @@
+[
+  {
+    "src": "/assets/images/gallery/konzert-01.webp",
+    "alt": "Astris Trio im Konzert",
+    "caption": "Konzert"
+  },
+  {
+    "src": "/assets/images/gallery/konzert-02.webp",
+    "alt": "Astris Trio auf der Bühne",
+    "caption": "Konzert"
+  },
+  {
+    "src": "/assets/images/gallery/konzert-03.webp",
+    "alt": "Konzertaufnahme des Astris Trio",
+    "caption": "Konzert"
+  },
+  {
+    "src": "/assets/images/gallery/konzert-04.webp",
+    "alt": "Astris Trio während eines Auftritts",
+    "caption": "Konzert"
+  },
+  {
+    "src": "/assets/images/gallery/shooting-01.webp",
+    "alt": "Astris Trio Fotoshooting",
+    "caption": "Fotoshooting"
+  },
+  {
+    "src": "/assets/images/gallery/shooting-02.webp",
+    "alt": "Portrait des Astris Trio",
+    "caption": "Fotoshooting"
+  },
+  {
+    "src": "/assets/images/gallery/shooting-03.webp",
+    "alt": "Astris Trio Ensemblefoto",
+    "caption": "Fotoshooting"
+  },
+  {
+    "src": "/assets/images/gallery/shooting-04.webp",
+    "alt": "Astris Trio Portraitaufnahme",
+    "caption": "Fotoshooting"
+  }
+]
