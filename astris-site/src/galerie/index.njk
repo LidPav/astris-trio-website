@@ -1,0 +1,30 @@
+---
+layout: layout.njk
+title: Galerie
+description: Bilder des Astris Trio aus Konzerten und Fotoshootings
+---
+
+<section class="editorial">
+  <div class="editorial__header">
+    <h1 class="editorial__title">Galerie</h1>
+    <p class="editorial__lead">
+      Eindrücke aus Konzerten, Proben und Fotoshootings des Astris Trio.
+    </p>
+  </div>
+
+  <section class="gallery">
+    {% for image in gallery %}
+      <figure class="gallery__item">
+        <img
+          src="{{ image.src }}"
+          alt="{{ image.alt }}"
+          loading="lazy"
+          class="gallery__image"
+        >
+        {% if image.caption %}
+          <figcaption class="gallery__caption">{{ image.caption }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </section>
+</section>
