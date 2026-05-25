@@ -884,10 +884,6 @@ h2{
 #form-status.error { color: #b00020; }
 
 /* ===============================
-   Header-Fotos als Grid (fix)
-   =============================== */
-
-/* ===============================
    Header-Fotos als Grid (2 Bilder, safe)
    =============================== */
 
@@ -899,6 +895,10 @@ h2{
   background: #000;
   min-height: 240px;
   border-bottom: 1.5px solid #D4AF37;
+}
+
+.header{
+  background: var(--bg);
 }
 
 @media (min-width: 768px){
@@ -964,6 +964,25 @@ h2{
   padding: 10px 16px;
 }
 
+.header__inner{
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 24px 18px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(0,0,0,.06);
+  border-right: 1px solid rgba(0,0,0,.06);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
 /* Links weiß */
 .nav__link{
   color: #fff;
@@ -976,13 +995,30 @@ h2{
   text-decoration: none;
 }
 
+.nav{
+  justify-content: center;
+}
+
+.nav__link{
+  color: var(--text);
+  text-shadow: none;
+}
+
+.nav__link:hover{
+  color: var(--accent);
+  background: rgba(59,91,204,.08);
+  text-decoration: none;
+}
+
 /* Mobile-Optimierungen */
 @media (max-width: 860px) {
   .header {
     min-height: 160px;
     background: #000;
   }
-
+.header{
+  background: var(--bg);
+}
   .header-photos {
     grid-template-columns: 1fr;
     align-items: center;
@@ -1012,7 +1048,24 @@ h2{
     background: rgba(0,0,0,.12);
     border-radius: 12px;
   }
-
+  .header__inner{
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 24px 18px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(0,0,0,.06);
+  border-right: 1px solid rgba(0,0,0,.06);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
   .brand-logo{
     order: 0;
     align-self: start;
@@ -1030,6 +1083,21 @@ h2{
     padding: 6px 8px;
     font-size: 0.95rem;
   }
+
+  .nav{
+  justify-content: center;
+}
+
+.nav__link{
+  color: var(--text);
+  text-shadow: none;
+}
+
+.nav__link:hover{
+  color: var(--accent);
+  background: rgba(59,91,204,.08);
+  text-decoration: none;
+}
 }
 
 @media (max-width: 420px) {
