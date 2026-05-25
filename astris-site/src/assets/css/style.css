@@ -914,7 +914,7 @@ h2{
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr minmax(360px, 520px) 1fr;
   pointer-events: none;
   z-index: 0;
 }
@@ -930,10 +930,12 @@ h2{
 
 /* Zuschnitt pro Bild */
 .header-photos img:nth-child(1){
-  object-position: 50% 45%;
+  grid-column: 1;
+  object-position: 50% 60%;
 }
 
 .header-photos img:nth-child(2){
+  grid-column: 3;
   object-position: 50% 45%;
 }
 
