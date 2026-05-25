@@ -939,14 +939,6 @@ h2{
   object-position: 50% 45%;
 }
 
-/* leichter dunkler Verlauf für Lesbarkeit */
-.header-photos::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  display: none;
-}
-
 /* Menü oben drauf */
 .header__inner{
   position: relative;
