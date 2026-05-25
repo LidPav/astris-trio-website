@@ -944,13 +944,7 @@ h2{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.55) 0%,
-    rgba(0,0,0,.15) 70%,
-    rgba(0,0,0,0) 100%
-  );
-  z-index: 1;
+  display: none;
 }
 
 /* Menü oben drauf */
@@ -970,44 +964,40 @@ h2{
   max-width: 520px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 24px 18px;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(10px);
+  padding: 26px 22px;
+  background: #fff;
   border-left: 1px solid rgba(0,0,0,.06);
   border-right: 1px solid rgba(0,0,0,.06);
   border-radius: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 14px;
-}
-
-/* Links weiß */
-.nav__link{
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.75);
-}
-
-.nav__link:hover{
-  color: #fff;
-  background: rgba(255,255,255,0.10);
-  text-decoration: none;
+  gap: 18px;
 }
 
 .nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 7px;
 }
 
 .nav__link{
   color: var(--text);
   text-shadow: none;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 2px 6px;
 }
 
 .nav__link:hover{
   color: var(--accent);
-  background: rgba(59,91,204,.08);
-  text-decoration: none;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 /* Mobile-Optimierungen */
@@ -1048,55 +1038,52 @@ h2{
     background: rgba(0,0,0,.12);
     border-radius: 12px;
   }
+  
+    .brand-logo{
+    order: 0;
+    align-self: start;
+  }
+
   .header__inner{
   position: relative;
   z-index: 2;
   max-width: 520px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 24px 18px;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(10px);
+  padding: 26px 22px;
+  background: #fff;
   border-left: 1px solid rgba(0,0,0,.06);
   border-right: 1px solid rgba(0,0,0,.06);
   border-radius: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
 }
-  .brand-logo{
-    order: 0;
-    align-self: start;
-  }
 
-  .nav{
-    order: 1;
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px 10px;
-    justify-content:flex-start;
-  }
-
-  .nav__link{
-    padding: 6px 8px;
-    font-size: 0.95rem;
-  }
-
-  .nav{
+.nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 7px;
 }
 
 .nav__link{
   color: var(--text);
   text-shadow: none;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 2px 6px;
 }
 
 .nav__link:hover{
   color: var(--accent);
-  background: rgba(59,91,204,.08);
-  text-decoration: none;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 }
 
