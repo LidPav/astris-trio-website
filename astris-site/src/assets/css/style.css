@@ -760,10 +760,11 @@ h2{
   height: 260px;
   max-width: none;
   object-fit: cover;
+  object-position: center 15%;   /* <- NEU */
   border-radius: 14px;
   display: block;
   margin-bottom: 1rem;
-  flex: 0 0 260px;   /* <- NEU: verhindert Shrinking im Flex-Layout */
+  flex: 0 0 260px;
 }
 
 .musiker-card__image--vay{
