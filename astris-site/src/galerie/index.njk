@@ -19,7 +19,7 @@ description: Bilder des Astris Trio aus Konzerten und Fotoshootings
           src="{{ image.src }}"
           alt="{{ image.alt }}"
           loading="lazy"
-          class="gallery__image"
+          class="{{ image.class or 'gallery__image' }}"
         >
         {% if image.caption %}
           <figcaption class="gallery__caption">{{ image.caption }}</figcaption>
