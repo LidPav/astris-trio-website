@@ -19,12 +19,14 @@
     "alt": "Astris Trio während eines Auftritts",
     "caption": "Konzert"
   },
+
   {
   "src": "/assets/images/gallery/DSC_0235_web.jpg",
   "alt": "Astris Trio",
   "class": "gallery__image gallery__image--portrait",
-   "caption": "Astris Trio"
-  },
+  "caption": "Astris Trio"
+},
+  
   {
     "src": "/assets/images/gallery/DSC_0248_web.jpg",
     "alt": "Portrait des Astris Trio",
