@@ -1194,3 +1194,7 @@ h2{
     gap: 1.5rem;
   }
 }
+
+.gallery__image--portrait{
+    object-position: center 10%;
+}
