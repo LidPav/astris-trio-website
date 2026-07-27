@@ -20,9 +20,10 @@
     "caption": "Konzert"
   },
   {
-    "src": "/assets/images/gallery/DSC_0235_web.jpg",
-    "alt": "Astris Trio Fotoshooting",
-    "caption": "Fotoshooting"
+  "src": "/assets/images/gallery/DSC_0235_web.jpg",
+  "alt": "Astris Trio",
+  "class": "gallery__image gallery__image--portrait",
+   "caption": "Astris Trio"
   },
   {
     "src": "/assets/images/gallery/DSC_0248_web.jpg",
