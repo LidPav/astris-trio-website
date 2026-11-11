@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Täglicher Build (03:15 UTC), damit vergangene Konzerte automatisch ins Archiv wandern
+  schedule:
+    - cron: "15 3 * * *"
 
 permissions:
   contents: read
