@@ -1198,3 +1198,26 @@ h2{
 .gallery__image--portrait{
     object-position: center 20%;
 }
+
+/* ===============================
+   KONZERTE – Termine & Archiv
+   =============================== */
+
+.concert-section{
+  margin-top: 2rem;
+}
+
+.concert-section + .concert-section{
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.concert-section--archive .card{
+  box-shadow: none;
+  background: rgba(255,255,255,.55);
+}
+
+.concert-section--archive .card .h2{
+  font-size: 1.1rem;
+}
