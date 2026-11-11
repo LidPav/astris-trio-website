@@ -5,25 +5,63 @@ description: Termine und Konzertarchiv
 ---
 
 <h1 class="h1">Konzerte</h1>
-<p class="lead">Termine &amp; Archiv</p>
 
-<div class="list">
-  {# Nunjucks: sortiere nach Datum und dann umdrehen (neueste zuerst) #}
-  {% set items = collections.konzerte | sort('date') | reverse %}
-  {% for post in items %}
-    <div class="card">
+{% set items = collections.konzerte | sort('date') %}
 
-      <h2 class="h2">
-        <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-      </h2>
+<section class="concert-section">
+  <h2 class="h2">Termine</h2>
 
-      <p class="muted small">
-        {{ post.date | deDate("EEEE, d. LLLL yyyy") }}
-        {% if post.data.city %} · {{ post.data.city }}{% endif %}
-        {% if post.data.venue %} · {{ post.data.venue }}{% endif %}
-      </p>
+  <div class="list">
+    {% set hasUpcoming = false %}
 
-      <a class="btn" href="{{ post.url | url }}">Details</a>
-    </div>
-  {% endfor %}
-</div>
+    {% for post in items %}
+      {% if post.date >= page.date %}
+        {% set hasUpcoming = true %}
+
+        <div class="card">
+          <h2 class="h2">
+            <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+          </h2>
+
+          <p class="muted small">
+            {{ post.date | deDate("EEEE, d. LLLL yyyy") }}
+            {% if post.data.city %} · {{ post.data.city }}{% endif %}
+            {% if post.data.venue %} · {{ post.data.venue }}{% endif %}
+          </p>
+
+          <a class="btn" href="{{ post.url | url }}">Details</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if not hasUpcoming %}
+      <p class="muted">Derzeit sind keine weiteren Konzerte angekündigt.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="concert-section concert-section--archive">
+  <h2 class="h2">Archiv</h2>
+
+  <div class="list">
+    {% set archiveItems = items | reverse %}
+
+    {% for post in archiveItems %}
+      {% if post.date < page.date %}
+        <div class="card">
+          <h2 class="h2">
+            <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+          </h2>
+
+          <p class="muted small">
+            {{ post.date | deDate("EEEE, d. LLLL yyyy") }}
+            {% if post.data.city %} · {{ post.data.city }}{% endif %}
+            {% if post.data.venue %} · {{ post.data.venue }}{% endif %}
+          </p>
+
+          <a class="btn" href="{{ post.url | url }}">Details</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
